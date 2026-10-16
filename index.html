@@ -6,8 +6,7 @@
 <meta name="theme-color" content="#090914">
 
 <title>RS GAMING MOD</title>
-
-<meta name="description" content="RS GAMING MOD - BUSSID Steering Wheel Mods, Realistic Rain Mods and Jet Bus Liverys.">
+<meta name="description" content="RS GAMING MOD - BUSSID Mods and Downloads.">
 
 <style>
 * {
@@ -16,17 +15,13 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #080817;
-    color: #ffffff;
+    color: white;
 }
-
-/* HEADER */
 
 header {
     background: #101025;
@@ -42,14 +37,7 @@ header {
     font-size: 25px;
     font-weight: 900;
     letter-spacing: 1px;
-    background: linear-gradient(
-        90deg,
-        #00eaff,
-        #ff00e6,
-        #ffe600,
-        #00ff88,
-        #00eaff
-    );
+    background: linear-gradient(90deg,#00eaff,#ff00e6,#ffe600,#00ff88,#00eaff);
     background-size: 300%;
     color: transparent;
     background-clip: text;
@@ -58,26 +46,14 @@ header {
 }
 
 @keyframes rainbow {
-    0% {
-        background-position: 0%;
-    }
-
-    100% {
-        background-position: 300%;
-    }
+    0% { background-position: 0%; }
+    100% { background-position: 300%; }
 }
-
-/* HERO */
 
 .hero {
     text-align: center;
     padding: 55px 15px 45px;
-    background: radial-gradient(
-        circle at top,
-        #30205c,
-        #101025 65%,
-        #080817
-    );
+    background: radial-gradient(circle at top,#30205c,#101025 65%,#080817);
 }
 
 .badge {
@@ -91,20 +67,14 @@ header {
 }
 
 .hero h1 {
-    font-size: clamp(30px, 7vw, 55px);
+    font-size: clamp(30px,7vw,55px);
     line-height: 1.3;
     margin: 20px 0 12px;
     font-weight: 900;
 }
 
 .hero h1 span {
-    background: linear-gradient(
-        90deg,
-        #00eaff,
-        #ff00e6,
-        #ffe600,
-        #00ff88
-    );
+    background: linear-gradient(90deg,#00eaff,#ff00e6,#ffe600,#00ff88);
     background-size: 300%;
     color: transparent;
     background-clip: text;
@@ -125,13 +95,11 @@ header {
     margin-top: 23px;
     padding: 13px 20px;
     border-radius: 10px;
-    background: linear-gradient(90deg, #00eaff, #b14cff, #ff3cac);
-    color: #ffffff;
+    background: linear-gradient(90deg,#00eaff,#b14cff,#ff3cac);
+    color: white;
     text-decoration: none;
     font-weight: bold;
 }
-
-/* MAIN */
 
 .container {
     max-width: 1050px;
@@ -145,10 +113,8 @@ header {
     margin-bottom: 25px;
 }
 
-/* CATEGORY CARDS */
-
 .category {
-    background: linear-gradient(145deg, #191933, #101020);
+    background: linear-gradient(145deg,#191933,#101020);
     border: 1px solid #343454;
     border-radius: 16px;
     padding: 21px;
@@ -179,29 +145,21 @@ header {
     padding: 14px;
     border: 0;
     border-radius: 9px;
-    background: linear-gradient(90deg, #653cff, #e936c8);
+    background: linear-gradient(90deg,#653cff,#e936c8);
     color: white;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.main-button:active {
-    transform: scale(0.99);
-}
-
-/* VERSIONS */
-
 .version-list {
     display: none;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 10px;
     margin-top: 16px;
 }
 
-.version-list.show {
-    display: grid;
-}
+.version-list.show { display: grid; }
 
 .version-button {
     padding: 13px 6px;
@@ -219,8 +177,6 @@ header {
     color: #00eaff;
 }
 
-/* VERSION DETAILS */
-
 .details {
     display: none;
     margin-top: 20px;
@@ -231,18 +187,19 @@ header {
     text-align: center;
 }
 
-.details.show {
-    display: block;
-}
+.details.show { display: block; }
 
 .details h3 {
-    font-size: clamp(23px, 5vw, 34px);
+    font-size: clamp(23px,5vw,34px);
     line-height: 1.35;
     margin-bottom: 17px;
-    color: #ffffff;
 }
 
-/* YOUTUBE VIDEO */
+.details h4 {
+    font-size: 18px;
+    margin: 20px 0 12px;
+    color: #00eaff;
+}
 
 .video-container {
     width: 100%;
@@ -252,14 +209,12 @@ header {
 
 .video-container iframe {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16/9;
     display: block;
     border: none;
     border-radius: 10px;
-    background: #000000;
+    background: black;
 }
-
-/* DOWNLOAD BUTTON */
 
 .download-button {
     display: block;
@@ -268,20 +223,13 @@ header {
     margin: 20px auto 0;
     padding: 16px 12px;
     border-radius: 10px;
-    background: linear-gradient(90deg, #00ff99, #00eaff);
+    background: linear-gradient(90deg,#00ff99,#00eaff);
     color: #06130d;
     text-decoration: none;
     text-align: center;
     font-size: 17px;
     font-weight: 900;
-    box-shadow: 0 5px 20px #00eaff20;
 }
-
-.download-button:hover {
-    filter: brightness(1.08);
-}
-
-/* INFO MESSAGE */
 
 .info-message {
     color: #ffd166 !important;
@@ -289,8 +237,6 @@ header {
     line-height: 1.7;
     margin-top: 15px !important;
 }
-
-/* LIVERY */
 
 .no-livery {
     display: none;
@@ -304,546 +250,304 @@ header {
     font-weight: bold;
 }
 
-.no-livery.show {
-    display: block;
-}
-
-/* FOOTER */
+.no-livery.show { display: block; }
 
 footer {
     background: #101025;
     border-top: 1px solid #343454;
     text-align: center;
     padding: 25px 15px;
-    color: #aaaaC5;
+    color: #aaaac5;
     font-size: 13px;
     line-height: 1.9;
 }
 
-footer strong {
-    color: white;
-}
+footer strong { color: white; }
 
-/* DESKTOP */
-
-@media (min-width: 750px) {
-    .container {
-        padding-top: 40px;
-    }
-
-    .version-list {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+@media (min-width:750px) {
+    .container { padding-top: 40px; }
+    .version-list { grid-template-columns: repeat(4,minmax(0,1fr)); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
 <header>
     <div class="logo">RS GAMING MOD</div>
 </header>
 
-<!-- HOME PAGE -->
-
-<section class="hero">
-
-    <div class="badge">
-        BUSSID MODS • DOWNLOADS • UPDATES
-    </div>
-
-    <h1>
-        WELCOME TO<br>
-        <span>RS GAMING MOD</span>
-    </h1>
-
+<section class="hero" id="home">
+    <div class="badge">BUSSID MODS • DOWNLOADS • UPDATES</div>
+    <h1>WELCOME TO<br><span>RS GAMING MOD</span></h1>
     <p>
         Welcome to RS GAMING MOD!<br>
         Discover BUSSID Steering Wheel Mods,
         Realistic Rain Mods and Jet Bus Liverys.
     </p>
-
-    <a href="#categories" class="hero-button">
-        EXPLORE MODS ↓
-    </a>
-
+    <a href="#categories" class="hero-button">EXPLORE MODS ↓</a>
 </section>
-
-<!-- CATEGORIES -->
 
 <main class="container" id="categories">
 
-    <h2 class="section-title">
-        🔥 MOD CATEGORIES
-    </h2>
+<h2 class="section-title">🔥 MOD CATEGORIES</h2>
 
-    <!-- CATEGORY 1: STEERING WHEEL -->
+<section class="category" id="steering-category">
+    <div class="icon">🛞</div>
+    <h2>BUSSID STEERING WHEEL MOD</h2>
+    <p>Select your BUSSID version to view the mod video and download link.</p>
+    <button class="main-button" onclick="toggleVersions('steering')">SELECT VERSION ▼</button>
+    <div id="steering-versions" class="version-list"></div>
+    <div id="steering-details" class="details">
+        <h3 id="steering-title"></h3>
+        <div class="video-container" id="steering-video-area"></div>
+        <h4>Your Mod Download Link</h4>
+        <a id="steering-download" class="download-button" href="#" target="_blank" rel="noopener noreferrer">📥 DOWNLOAD MOD</a>
+        <p id="steering-message" class="info-message"></p>
+    </div>
+</section>
 
-    <section class="category">
+<section class="category" id="rain-category">
+    <div class="icon">🌧️</div>
+    <h2>BUSSID REALISTIC RAIN MOD</h2>
+    <p>Select a version to see the download button and video tutorial.</p>
+    <button class="main-button" onclick="toggleVersions('rain')">SELECT VERSION ▼</button>
+    <div id="rain-versions" class="version-list"></div>
+    <div id="rain-details" class="details">
+        <h3 id="rain-title"></h3>
+        <div class="video-container" id="rain-video-area"></div>
+        <h4>Your Mod Download Link</h4>
+        <a id="rain-download" class="download-button" href="#" target="_blank" rel="noopener noreferrer">📥 DOWNLOAD MOD</a>
+        <p id="rain-message" class="info-message"></p>
+    </div>
+</section>
 
-        <div class="icon">🛞</div>
-
-        <h2>
-            BUSSID STEERING WHEEL MOD
-        </h2>
-
-        <p>
-            Select your BUSSID version to view the mod video
-            and download link.
-        </p>
-
-        <button
-            class="main-button"
-            onclick="toggleVersions('steering')">
-
-            SELECT VERSION ▼
-
-        </button>
-
-        <div
-            id="steering-versions"
-            class="version-list">
-        </div>
-
-        <div
-            id="steering-details"
-            class="details">
-
-            <h3 id="steering-title">
-                TOP 4 STEERING WHEEL MOD
-            </h3>
-
-            <div class="video-container">
-
-                <iframe
-                    id="steering-video"
-                    src=""
-                    title="TOP 4 STEERING WHEEL MOD"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                </iframe>
-
-            </div>
-
-            <a
-                id="steering-download"
-                class="download-button"
-                href="https://sharemods.com/1ysqyf4rvjgz/Bussid_V4.5.2_Top_4_Steering_Wheel_Mod.7z.html"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                📥 DOWNLOAD MOD
-
-            </a>
-
-            <p
-                id="steering-message"
-                class="info-message"
-                style="display:none;">
-
-                A download link for this version has not been added yet.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- CATEGORY 2: REALISTIC RAIN -->
-
-    <section class="category">
-
-        <div class="icon">🌧️</div>
-
-        <h2>
-            BUSSID REALISTIC RAIN MOD
-        </h2>
-
-        <p>
-            Select a version to see the download button
-            and video tutorial.
-        </p>
-
-        <button
-            class="main-button"
-            onclick="toggleVersions('rain')">
-
-            SELECT VERSION ▼
-
-        </button>
-
-        <div
-            id="rain-versions"
-            class="version-list">
-        </div>
-
-        <div
-            id="rain-details"
-            class="details">
-
-            <h3 id="rain-title">
-                BUSSID REALISTIC RAIN MOD
-            </h3>
-
-            <div id="rain-video-area"></div>
-
-            <a
-                id="rain-download"
-                class="download-button"
-                href="https://example.com/"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                📥 DOWNLOAD MOD
-
-            </a>
-
-            <p class="info-message">
-                Add your Realistic Rain Mod download link
-                and video in the code to activate them.
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- CATEGORY 3: JET BUS LIVERYS -->
-
-    <section class="category">
-
-        <div class="icon">🚌</div>
-
-        <h2>
-            BUSSID JET BUS LIVERYS
-        </h2>
-
-        <p>
-            Explore our BUSSID Jet Bus Livery collection.
-        </p>
-
-        <button
-            class="main-button"
-            onclick="toggleLivery()">
-
-            VIEW LIVERYS ▼
-
-        </button>
-
-        <div
-            id="livery-message"
-            class="no-livery">
-
-            🚫 NO LIVERYS<br><br>
-            NEW LIVERYS COMING SOON!
-
-        </div>
-
-    </section>
+<section class="category" id="livery-category">
+    <div class="icon">🚌</div>
+    <h2>BUSSID JET BUS LIVERYS</h2>
+    <p>Explore our BUSSID Jet Bus Livery collection.</p>
+    <button class="main-button" onclick="toggleLivery()">VIEW LIVERYS ▼</button>
+    <div id="livery-message" class="no-livery">🚫 NO LIVERYS<br><br>NEW LIVERYS COMING SOON!</div>
+</section>
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
-
     <strong>RS GAMING MOD</strong><br>
-
     BUSSID Mods • Downloads • Tutorials<br>
-
     Only download files you trust.<br>
-
     © 2026 RS GAMING MOD
-
 </footer>
 
 <script>
+/*
+HOW TO ADD A NEW MOD:
+1. Add its version and download link in the data below.
+2. Use a unique URL ID such as ?mod=steering-v452.
+3. Commit changes on GitHub.
+*/
 
-/* ==========================================
-   VERSION LISTS
-========================================== */
+const modData = {
+    "steering-v452": {
+        category: "steering",
+        version: "V4.5.2",
+        title: "BUSSID V4.5.2 TOP 4 STEERING WHEEL MOD",
+        download: "https://sharemods.com/1ysqyf4rvjgz/Bussid_V4.5.2_Top_4_Steering_Wheel_Mod.7z.html",
+        videoID: "7lbKLJHIqeo"
+    },
+
+    "steering-v451": {
+        category: "steering",
+        version: "V4.5.1",
+        title: "BUSSID V4.5.1 STEERING WHEEL MOD",
+        download: "",
+        videoID: ""
+    },
+
+    "rain-v452": {
+        category: "rain",
+        version: "V4.5.2",
+        title: "BUSSID V4.5.2 REALISTIC RAIN MOD",
+        download: "",
+        videoID: ""
+    },
+
+    "livery-v1": {
+        category: "livery",
+        version: "V1",
+        title: "BUSSID JET BUS LIVERY",
+        download: "",
+        videoID: ""
+    }
+};
 
 const versionLists = {
-
-    steering: [
-        "V4.5.2",
-        "V4.5.1",
-        "V4.5.0",
-        "V4.4.1",
-        "V4.4.0",
-        "V4.3.0",
-        "V4.2.0",
-        "V4.1.0",
-        "V4.0"
-    ],
-
-    rain: [
-        "V4.5.2",
-        "V4.5.1",
-        "V4.5.0",
-        "V4.4.1",
-        "V4.4.0",
-        "V4.3.0",
-        "V4.2.0",
-        "V4.1.0",
-        "V4.0"
-    ]
-
+    steering: ["V4.5.2","V4.5.1","V4.5.0","V4.4.1","V4.4.0","V4.3.0","V4.2.0","V4.1.0","V4.0"],
+    rain: ["V4.5.2","V4.5.1","V4.5.0","V4.4.1","V4.4.0","V4.3.0","V4.2.0","V4.1.0","V4.0"]
 };
 
-
-/* ==========================================
-   YOUR REAL STEERING WHEEL LINKS
-========================================== */
-
-const steeringDownloadLinks = {
-
-    "V4.5.2":
-    "https://sharemods.com/1ysqyf4rvjgz/Bussid_V4.5.2_Top_4_Steering_Wheel_Mod.7z.html"
-
+const categoryIDs = {
+    steering: "steering-category",
+    rain: "rain-category",
+    livery: "livery-category"
 };
-
-
-/* ==========================================
-   YOUR YOUTUBE VIDEO
-========================================== */
-
-const steeringVideoID = "7lbKLJHIqeo";
-
-
-/* ==========================================
-   SHOW / HIDE VERSIONS
-========================================== */
 
 function toggleVersions(category) {
-
-    const list = document.getElementById(
-        category + "-versions"
-    );
+    const list = document.getElementById(category + "-versions");
 
     if (!list.dataset.created) {
-
-        versionLists[category].forEach(function(version) {
-
+        versionLists[category].forEach(version => {
             const button = document.createElement("button");
-
             button.className = "version-button";
             button.textContent = version;
-
-            button.onclick = function() {
-
-                selectVersion(category, version);
-
-            };
-
+            button.onclick = () => showVersion(category, version);
             list.appendChild(button);
-
         });
-
         list.dataset.created = "true";
-
     }
 
     list.classList.toggle("show");
-
 }
 
+function showVersion(category, version) {
+    const key = category + "-" + version.toLowerCase().replaceAll(".", "");
+    const data = modData[key];
 
-/* ==========================================
-   VERSION SELECTION
-========================================== */
-
-function selectVersion(category, version) {
+    document.getElementById(category + "-details").classList.add("show");
 
     if (category === "steering") {
+        document.getElementById("steering-title").textContent =
+            data ? data.title : version + " STEERING WHEEL MOD";
 
-        showSteeringDetails(version);
+        const videoArea = document.getElementById("steering-video-area");
+        const download = document.getElementById("steering-download");
+        const message = document.getElementById("steering-message");
 
+        if (data && data.videoID) {
+            videoArea.innerHTML =
+                '<iframe src="https://www.youtube-nocookie.com/embed/' +
+                encodeURIComponent(data.videoID) +
+                '" title="' + data.title +
+                '" loading="lazy" allowfullscreen></iframe>';
+        } else {
+            videoArea.innerHTML = "";
+        }
+
+        if (data && data.download) {
+            download.href = data.download;
+            download.style.display = "block";
+            message.textContent = "";
+        } else {
+            download.style.display = "none";
+            message.textContent = "Download link and video are not available for this version yet.";
+        }
     }
 
     if (category === "rain") {
+        document.getElementById("rain-title").textContent =
+            data ? data.title : version + " REALISTIC RAIN MOD";
 
-        showRainDetails(version);
+        const download = document.getElementById("rain-download");
+        const message = document.getElementById("rain-message");
+        const videoArea = document.getElementById("rain-video-area");
 
+        if (data && data.download) {
+            download.href = data.download;
+            download.style.display = "block";
+            message.textContent = "";
+        } else {
+            download.style.display = "none";
+            message.textContent = "Download link has not been added yet.";
+        }
+
+        videoArea.innerHTML = data && data.videoID
+            ? '<iframe src="https://www.youtube-nocookie.com/embed/' +
+              encodeURIComponent(data.videoID) +
+              '" title="' + data.title + '" loading="lazy" allowfullscreen></iframe>'
+            : "";
     }
 
-}
-
-
-/* ==========================================
-   STEERING WHEEL DETAILS
-========================================== */
-
-function showSteeringDetails(version) {
-
-    const details = document.getElementById(
-        "steering-details"
-    );
-
-    const title = document.getElementById(
-        "steering-title"
-    );
-
-    const video = document.getElementById(
-        "steering-video"
-    );
-
-    const download = document.getElementById(
-        "steering-download"
-    );
-
-    const message = document.getElementById(
-        "steering-message"
-    );
-
-    details.classList.add("show");
-
-    if (version === "V4.5.2") {
-
-        title.textContent =
-            "TOP 4 STEERING WHEEL MOD";
-
-        video.src =
-            "https://www.youtube-nocookie.com/embed/" +
-            steeringVideoID;
-
-        download.href =
-            steeringDownloadLinks["V4.5.2"];
-
-        download.style.display = "block";
-        video.style.display = "block";
-        message.style.display = "none";
-
-    } else {
-
-        title.textContent =
-            version + " STEERING WHEEL MOD";
-
-        video.removeAttribute("src");
-        video.style.display = "none";
-
-        download.style.display = "none";
-
-        message.textContent =
-            "Download link and video are not available for " +
-            version + " yet. Please select V4.5.2.";
-
-        message.style.display = "block";
-
-    }
-
-    details.scrollIntoView({
+    document.getElementById(category + "-details").scrollIntoView({
         behavior: "smooth",
         block: "nearest"
     });
-
 }
-
-
-/* ==========================================
-   REALISTIC RAIN MOD
-   Add your actual links when available.
-========================================== */
-
-const rainDownloadLinks = {
-
-    "V4.5.2": "",
-    "V4.5.1": "",
-    "V4.5.0": "",
-    "V4.4.1": "",
-    "V4.4.0": "",
-    "V4.3.0": "",
-    "V4.2.0": "",
-    "V4.1.0": "",
-    "V4.0": ""
-
-};
-
-const rainVideoID = "";
-
-
-function showRainDetails(version) {
-
-    const details = document.getElementById(
-        "rain-details"
-    );
-
-    const title = document.getElementById(
-        "rain-title"
-    );
-
-    const videoArea = document.getElementById(
-        "rain-video-area"
-    );
-
-    const download = document.getElementById(
-        "rain-download"
-    );
-
-    details.classList.add("show");
-
-    title.textContent =
-        version + " — BUSSID REALISTIC RAIN MOD";
-
-    const link = rainDownloadLinks[version];
-
-    if (link) {
-
-        download.href = link;
-        download.style.display = "block";
-
-    } else {
-
-        download.href = "#";
-        download.style.display = "none";
-
-    }
-
-    if (rainVideoID) {
-
-        videoArea.innerHTML =
-            '<div class="video-container">' +
-            '<iframe src="https://www.youtube-nocookie.com/embed/' +
-            encodeURIComponent(rainVideoID) +
-            '" title="BUSSID Realistic Rain Mod Tutorial" ' +
-            'loading="lazy" allowfullscreen></iframe>' +
-            '</div>';
-
-    } else {
-
-        videoArea.innerHTML =
-            '<p class="info-message">' +
-            'Rain Mod video has not been added yet.' +
-            '</p>';
-
-    }
-
-    details.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-    });
-
-}
-
-
-/* ==========================================
-   JET BUS LIVERYS
-========================================== */
 
 function toggleLivery() {
-
-    const message = document.getElementById(
-        "livery-message"
-    );
-
-    message.classList.toggle("show");
-
+    document.getElementById("livery-message").classList.toggle("show");
 }
 
+function openSingleMod(key) {
+    const data = modData[key];
+    if (!data) return;
+
+    document.getElementById("home").style.display = "none";
+
+    Object.keys(categoryIDs).forEach(category => {
+        document.getElementById(categoryIDs[category]).style.display =
+            category === data.category ? "block" : "none";
+    });
+
+    document.querySelector(".section-title").textContent = data.title;
+
+    if (data.category === "livery") {
+        document.getElementById("livery-message").classList.add("show");
+        document.getElementById("livery-message").textContent =
+            data.download ? "Your livery is ready to download." : "Download link has not been added yet.";
+        return;
+    }
+
+    const details = document.getElementById(data.category + "-details");
+    details.classList.add("show");
+
+    if (data.category === "steering") {
+        document.getElementById("steering-title").textContent = data.title;
+        const area = document.getElementById("steering-video-area");
+        area.innerHTML = data.videoID
+            ? '<iframe src="https://www.youtube-nocookie.com/embed/' +
+              encodeURIComponent(data.videoID) +
+              '" title="' + data.title + '" loading="lazy" allowfullscreen></iframe>'
+            : "";
+
+        const download = document.getElementById("steering-download");
+        download.style.display = data.download ? "block" : "none";
+        if (data.download) download.href = data.download;
+
+        document.getElementById("steering-message").textContent =
+            data.download ? "" : "Download link has not been added yet.";
+    }
+
+    if (data.category === "rain") {
+        document.getElementById("rain-title").textContent = data.title;
+
+        const download = document.getElementById("rain-download");
+        download.style.display = data.download ? "block" : "none";
+        if (data.download) download.href = data.download;
+
+        document.getElementById("rain-message").textContent =
+            data.download ? "" : "Download link has not been added yet.";
+
+        document.getElementById("rain-video-area").innerHTML =
+            data.videoID
+            ? '<iframe src="https://www.youtube-nocookie.com/embed/' +
+              encodeURIComponent(data.videoID) +
+              '" title="' + data.title + '" loading="lazy" allowfullscreen></iframe>'
+            : "";
+    }
+
+    window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+function toggleMainForMod() {
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get("mod");
+    if (key && modData[key]) {
+        openSingleMod(key);
+    }
+}
+
+toggleMainForMod();
 </script>
 
 </body>
-  </html>
+    </html>
