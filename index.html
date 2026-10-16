@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RS GAMING MOD | BUSSID Mods Download</title>
+<title>RS GAMING MOD | BUSSID Mods</title>
 
-<meta name="description" content="RS GAMING MOD - Download BUSSID realistic rain mods, steering wheel mods, wheel caps, KSRTC and NWKRTC liveries.">
-
-<meta name="theme-color" content="#101010">
+<meta name="description" content="Discover BUSSID mods, realistic steering wheels, rain mods, wheel caps and KSRTC/NWKRTC liveries.">
 
 <style>
+/* =========================
+   GLOBAL DESIGN
+========================= */
+
+:root {
+    --bg: #080b12;
+    --panel: #101622;
+    --panel2: #151e2c;
+    --border: #273448;
+    --text: #f4f7ff;
+    --muted: #a7b3c7;
+    --red: #ff304f;
+    --red-dark: #c91332;
+    --blue: #35a7ff;
+    --green: #21db8b;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -23,274 +37,653 @@ html {
 }
 
 body {
+    background: var(--bg);
+    color: var(--text);
     font-family: Arial, Helvetica, sans-serif;
-    background: #0b0b0b;
-    color: #ffffff;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
-/* HEADER */
-
-.header {
-    background: #111111;
-    padding: 25px 12px;
-    text-align: center;
-    border-bottom: 3px solid #ff9800;
+button, input, a {
+    font: inherit;
 }
 
-.header h1 {
-    color: #ff9800;
-    font-size: 30px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
-
-.header p {
-    color: #eeeeee;
-    font-size: 13px;
-    margin-top: 7px;
-}
-
-/* NAVIGATION */
-
-.nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 18px;
-    padding: 14px 8px;
-    background: #1a1a1a;
-    border-bottom: 1px solid #333333;
-}
-
-.nav a {
-    color: white;
+a {
     text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
+    color: inherit;
 }
 
-.nav a:hover {
-    color: #ff9800;
+button {
+    cursor: pointer;
 }
-
-/* HERO */
-
-.hero {
-    text-align: center;
-    padding: 35px 15px;
-    background: linear-gradient(135deg, #171717, #352000);
-}
-
-.hero h2 {
-    font-size: 25px;
-    color: #ff9800;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    color: #dddddd;
-    font-size: 14px;
-}
-
-.search-box {
-    max-width: 600px;
-    margin: 22px auto 0;
-}
-
-.search-box input {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid #ff9800;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-}
-
-/* MAIN CONTENT */
 
 .container {
-    width: 100%;
-    max-width: 1000px;
-    padding: 15px;
+    width: min(1150px, 92%);
     margin: auto;
-}
-
-/* MOD TITLES */
-
-.section-title {
-    color: #ff9800;
-    font-size: 21px;
-    padding: 13px;
-    margin: 28px 0 15px;
-    background: #181818;
-    border-left: 5px solid #ff9800;
-    border-radius: 4px;
-    scroll-margin-top: 15px;
-}
-
-/* MOD CARDS */
-
-.mod-card {
-    background: #161616;
-    border: 1px solid #333333;
-    border-radius: 10px;
-    margin-bottom: 18px;
-    overflow: hidden;
-}
-
-.mod-heading {
-    padding: 17px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.mod-details {
-    border-top: 1px solid #333333;
-}
-
-.mod-details summary {
-    padding: 15px;
-    cursor: pointer;
-    background: #222222;
-    color: #ffb74d;
-    font-weight: bold;
-}
-
-.mod-details summary:hover {
-    background: #2c2c2c;
-}
-
-.version-content {
-    padding: 18px;
-}
-
-.big-title {
-    font-size: 25px;
-    line-height: 1.5;
-    color: #ff9800;
-    margin-bottom: 15px;
-    overflow-wrap: anywhere;
-}
-
-.version-content p {
-    color: #dddddd;
-    margin: 10px 0;
-}
-
-/* VIDEO */
-
-.video-box {
-    margin: 15px 0;
-    width: 100%;
-}
-
-.video-box iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border: none;
-    border-radius: 8px;
-    background: #000000;
-    display: block;
-}
-
-/* BUTTONS */
-
-.btn {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    margin-top: 13px;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 7px;
-    background: #ff9800;
-    color: #111111;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: #ffc107;
-}
-
-.video-btn {
-    background: #d62828;
-    color: white;
-}
-
-.video-btn:hover {
-    background: #f44336;
-}
-
-.disabled-btn {
-    background: #353535;
-    color: #bbbbbb;
-    cursor: not-allowed;
 }
 
 .hidden {
     display: none !important;
 }
 
-.no-results {
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: rgba(8, 11, 18, 0.96);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--red);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    padding: 75px 0 55px;
     text-align: center;
-    color: #ffb74d;
-    padding: 25px;
-    display: none;
+    background:
+        radial-gradient(ellipse at 50% 0%, #36101d 0%, transparent 55%),
+        linear-gradient(180deg, #0d111b, var(--bg));
+    border-bottom: 1px solid var(--border);
 }
 
-/* COPYRIGHT */
-
-.footer {
-    margin-top: 35px;
-    padding: 30px 15px;
-    text-align: center;
-    background: #151515;
-    border-top: 3px solid #ff9800;
-    color: #cccccc;
+.hero-label {
+    display: inline-block;
+    color: #ff7186;
+    background: rgba(255, 48, 79, 0.1);
+    border: 1px solid rgba(255, 48, 79, 0.35);
+    padding: 7px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
 }
 
-.footer h2 {
-    color: #ff9800;
-    font-size: 21px;
-    margin-bottom: 12px;
+.hero h1 {
+    font-size: clamp(35px, 7vw, 65px);
+    line-height: 1.12;
+    font-weight: 900;
+    margin-bottom: 20px;
 }
 
-.footer p {
+.hero h1 span {
+    color: var(--red);
+    text-shadow: 0 0 25px rgba(255, 48, 79, 0.25);
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 650px;
+    margin: 0 auto 28px;
+    font-size: 15px;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.stat {
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.025);
+    border-radius: 9px;
+    color: #dce5f5;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-area {
+    margin: 32px auto 0;
+    max-width: 580px;
+    position: relative;
+}
+
+.search-area input {
+    width: 100%;
+    background: #0b111c;
+    border: 1px solid #334258;
+    color: #fff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-area input::placeholder {
+    color: #7d8aa0;
+}
+
+.search-area input:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(255,48,79,0.1);
+}
+
+/* =========================
+   MAIN SECTIONS
+========================= */
+
+main {
+    padding: 45px 0;
+}
+
+.section-heading {
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.section-heading h2 span {
+    color: var(--red);
+}
+
+.mods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.mod-card {
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg, var(--panel), #0c111a);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+    cursor: pointer;
+    min-width: 0;
+}
+
+.mod-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--red);
+}
+
+.mod-art {
+    min-height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 45%, #3a1a29 0%, transparent 60%),
+        linear-gradient(135deg, #161e2e, #090d15);
+    border-bottom: 1px solid var(--border);
+}
+
+.mod-art::before {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border: 1px solid rgba(255,48,79,0.2);
+    border-radius: 50%;
+}
+
+.mod-icon {
+    font-size: 64px;
+    position: relative;
+    filter: drop-shadow(0 0 15px rgba(255,48,79,0.25));
+}
+
+.mod-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--red);
+    color: #fff;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.mod-content {
+    padding: 19px;
+}
+
+.mod-content h3 {
+    font-size: 17px;
+    line-height: 1.45;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.mod-content p {
+    color: var(--muted);
     font-size: 13px;
-    margin: 7px 0;
+    margin-bottom: 17px;
 }
 
-/* MOBILE */
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
 
-@media (max-width: 600px) {
+.version-label {
+    color: #c7d4e8;
+    font-size: 12px;
+    font-weight: bold;
+}
 
-    .header h1 {
-        font-size: 25px;
+.view-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 9px 13px;
+    font-size: 12px;
+    font-weight: 900;
+    transition: 0.2s;
+}
+
+.view-btn:hover {
+    background: var(--red-dark);
+}
+
+.no-results {
+    color: var(--muted);
+    padding: 30px 0;
+    text-align: center;
+}
+
+/* =========================
+   PAGE / BREADCRUMB
+========================= */
+
+.page-area {
+    min-height: 65vh;
+    padding: 35px 0 65px;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.breadcrumb a {
+    color: var(--blue);
+    cursor: pointer;
+}
+
+.breadcrumb a:hover {
+    color: #fff;
+}
+
+.page-title {
+    font-size: clamp(27px, 5vw, 42px);
+    line-height: 1.25;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.page-description {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+/* =========================
+   VERSION LIST
+========================= */
+
+.version-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.version-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.version-card:hover {
+    border-color: var(--red);
+    background: var(--panel2);
+}
+
+.version-card h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.version-card p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.version-arrow {
+    color: var(--red);
+    font-size: 27px;
+    font-weight: bold;
+}
+
+/* =========================
+   MOD DETAILS
+========================= */
+
+.details-panel {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: linear-gradient(145deg, var(--panel), #0a0e16);
+    padding: 25px;
+}
+
+.details-badge {
+    display: inline-block;
+    background: rgba(33,219,139,0.1);
+    border: 1px solid rgba(33,219,139,0.3);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 900;
+    padding: 6px 11px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.details-panel h1 {
+    font-size: clamp(25px, 5vw, 40px);
+    line-height: 1.3;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.details-panel .description {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.content-heading {
+    font-size: 19px;
+    margin: 30px 0 15px;
+    color: #fff;
+}
+
+.content-heading span {
+    color: var(--red);
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-box {
+    width: 100%;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid #29364a;
+    border-radius: 12px;
+}
+
+.video-box iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    position: absolute;
+    inset: 0;
+}
+
+.video-placeholder {
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #080b12;
+    border: 1px dashed #354258;
+    border-radius: 12px;
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+}
+
+.video-placeholder strong {
+    color: #fff;
+}
+
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
+
+.download-area {
+    margin-top: 25px;
+    padding: 22px;
+    background: rgba(33,219,139,0.045);
+    border: 1px solid rgba(33,219,139,0.2);
+    border-radius: 12px;
+}
+
+.download-area p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.download-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    padding: 16px 20px;
+    border-radius: 9px;
+    background: var(--green);
+    color: #06130d;
+    font-size: 15px;
+    font-weight: 900;
+    border: none;
+    transition: 0.2s;
+}
+
+.download-btn:hover {
+    background: #51f0aa;
+    transform: translateY(-2px);
+}
+
+.download-btn.disabled {
+    background: #293344;
+    color: #9eacc0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 11px 17px;
+    color: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--panel);
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    border-color: var(--red);
+}
+
+/* =========================
+   COPYRIGHT / FOOTER
+========================= */
+
+.copyright-policy {
+    margin-top: 55px;
+    padding: 25px;
+    border: 1px solid var(--border);
+    background: #0d121c;
+    border-radius: 12px;
+}
+
+.copyright-policy h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.copyright-policy p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 9px;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 25px 0;
+    color: var(--muted);
+    text-align: center;
+    font-size: 12px;
+}
+
+footer strong {
+    color: var(--red);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 850px) {
+    .mods-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .hero h2 {
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 550px) {
+    .navbar {
+        min-height: 65px;
+        flex-wrap: wrap;
+        padding: 12px 0;
+        gap: 10px;
+    }
+
+    .logo {
         font-size: 21px;
     }
 
-    .section-title {
-        font-size: 18px;
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        padding-bottom: 3px;
     }
 
-    .big-title {
-        font-size: 22px;
+    .hero {
+        padding: 48px 0 40px;
     }
 
-    .nav {
-        gap: 12px;
+    .mods-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 
-    .nav a {
-        font-size: 13px;
+    .mod-art {
+        min-height: 145px;
+    }
+
+    .version-list {
+        grid-template-columns: 1fr;
+    }
+
+    .details-panel {
+        padding: 17px;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .page-area {
+        padding-top: 25px;
     }
 }
 </style>
@@ -298,470 +691,843 @@ body {
 
 <body>
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
-<header class="header" id="home">
+<header>
+    <div class="container navbar">
 
-    <h1>🎮 RS GAMING MOD</h1>
+        <div class="logo" onclick="goHome()">
+            RS <span>GAMING MOD</span>
+        </div>
 
-    <p>BUSSID / BUSSIN MODS EASY & FAST DOWNLOAD</p>
+        <nav class="nav-links">
+            <a href="#home" onclick="goHome()">HOME</a>
+            <a href="#mods" onclick="goHome('mods')">BUSSID MODS</a>
+            <a href="#copyright" onclick="goHome('copyright')">COPYRIGHT</a>
+        </nav>
 
+    </div>
 </header>
 
-<!-- NAVIGATION -->
+<!-- =========================
+     HOME PAGE
+========================= -->
 
-<nav class="nav">
+<div id="homePage">
 
-    <a href="#home">🏠 Home</a>
+    <section class="hero" id="home">
+        <div class="container">
 
-    <a href="#rain">🌧️ Realistic Rain</a>
+            <div class="hero-label">GAMING MODS DOWNLOAD HUB</div>
 
-    <a href="#steering">🎮 Steering Wheel</a>
+            <h1>
+                RS <span>GAMING MOD</span>
+            </h1>
 
-    <a href="#wheelcap">🛞 Wheel Cap</a>
+            <p>
+                BUSSID/BUSSIN MODS EASY &amp; FAST DOWNLOAD
+                <br>
+                Discover new mods, versions, videos and download links.
+            </p>
 
-    <a href="#ksrtc">🚌 KSRTC</a>
+            <div class="search-area">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search your favourite MOD..."
+                    autocomplete="off"
+                    aria-label="Search MODs"
+                >
+            </div>
 
-    <a href="#nwkrtc">🚌 NWKRTC</a>
+            <div class="hero-stats">
+                <div class="stat">🎮 BUSSID MODS</div>
+                <div class="stat">📦 MOD VERSIONS</div>
+                <div class="stat">⬇️ EASY DOWNLOAD</div>
+            </div>
 
-    <a href="#copyright">Copyright</a>
+        </div>
+    </section>
 
-</nav>
+    <main class="container" id="mods">
 
-<!-- SEARCH -->
+        <div class="section-heading">
+            <h2>EXPLORE <span>MODS</span></h2>
+            <p>Choose a MOD to view its available versions.</p>
+        </div>
 
-<section class="hero">
+        <div class="mods-grid" id="modsGrid"></div>
 
-    <h2>BUSSID MODS DOWNLOAD</h2>
+        <p class="no-results hidden" id="noResults">
+            No MODs found. Try another search.
+        </p>
 
-    <p>
-        Find your favourite MODs, watch videos
-        and download easily!
-    </p>
+        <!-- COPYRIGHT POLICY -->
 
-    <div class="search-box">
+        <section class="copyright-policy" id="copyright">
+            <h3>© COPYRIGHT POLICY</h3>
 
-        <input
-            type="search"
-            id="searchInput"
-            placeholder="🔍 Search your favourite MOD..."
-            aria-label="Search MODs"
-        >
+            <p>
+                RS GAMING MOD provides links to external websites
+                for downloading files and viewing videos.
+            </p>
+
+            <p>
+                Files hosted on third-party services are subject
+                to their respective owners' terms and policies.
+            </p>
+
+            <p>
+                If you own content displayed on this website and
+                have a copyright concern, contact the website owner
+                with the relevant details.
+            </p>
+
+            <p>
+                This website is an independent fan website and is
+                not officially affiliated with BUSSID or its developers.
+            </p>
+        </section>
+
+    </main>
+
+</div>
+
+<!-- =========================
+     VERSIONS PAGE
+========================= -->
+
+<section id="versionsPage" class="page-area hidden">
+    <div class="container">
+
+        <div class="breadcrumb">
+            <a href="#home" onclick="goHome()">HOME</a>
+            <span>›</span>
+            <span id="versionBreadcrumb">MOD</span>
+        </div>
+
+        <h1 class="page-title" id="versionsTitle"></h1>
+
+        <p class="page-description">
+            Select a version to view its video and download link.
+        </p>
+
+        <div class="version-list" id="versionList"></div>
+
+        <button class="back-btn" onclick="goHome('mods')">
+            ← BACK TO MODS
+        </button>
 
     </div>
-
 </section>
 
-<main class="container">
+<!-- =========================
+     MOD DETAILS PAGE
+========================= -->
 
-<!-- ================================== -->
-<!-- REALISTIC RAIN -->
-<!-- ================================== -->
+<section id="detailsPage" class="page-area hidden">
+    <div class="container">
 
-<h2 class="section-title" id="rain">
-    🌧️ BUSSID REALISTIC RAIN 🌧️⛈️ MOD
-</h2>
+        <div class="breadcrumb">
+            <a href="#home" onclick="goHome()">HOME</a>
+            <span>›</span>
+            <a href="#mods" id="detailsModBreadcrumb"></a>
+            <span>›</span>
+            <span id="detailsVersionBreadcrumb"></span>
+        </div>
 
-<div class="mod-card" data-search="bussid realistic rain weather storm">
+        <div class="details-panel">
 
-    <div class="mod-heading">
-        🌧️ BUSSID REALISTIC RAIN MOD
-    </div>
+            <div class="details-badge">
+                ● MOD INFORMATION
+            </div>
 
-    <details class="mod-details">
+            <h1 id="detailsTitle"></h1>
 
-        <summary>📂 SHOW VERSIONS</summary>
+            <p class="description" id="detailsDescription"></p>
 
-        <div class="version-content">
+            <h2 class="content-heading">
+                <span>▶</span> MOD VIDEO
+            </h2>
 
-            <details>
+            <div id="videoContainer"></div>
 
-                <summary>VERSION 1 — BUSSID V4.5.2</summary>
+            <h2 class="content-heading">
+                <span>⬇</span> DOWNLOAD
+            </h2>
 
-                <div class="version-content">
+            <div class="download-area">
 
-                    <h2 class="big-title">
-                        BUSSID V4.5.2 REALISTIC RAIN 🌧️⛈️ MOD
-                    </h2>
+                <p>
+                    Click the button below to open the available
+                    download page.
+                </p>
 
-                    <p>🎬 Watch the MOD video.</p>
+                <a
+                    id="downloadButton"
+                    class="download-btn"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ⬇ DOWNLOAD MOD
+                </a>
 
-                    <a
-                        class="btn video-btn"
-                        href="https://www.youtube.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        ▶ WATCH VIDEO
-                    </a>
-
-                    <a
-                        class="btn disabled-btn"
-                        href="#"
-                        onclick="return false;"
-                    >
-                        ⬇ DOWNLOAD LINK NOT ADDED
-                    </a>
-
-                </div>
-
-            </details>
+            </div>
 
         </div>
 
-    </details>
+        <button class="back-btn" id="backToVersions">
+            ← BACK TO VERSIONS
+        </button>
 
-</div>
-
-
-<!-- ================================== -->
-<!-- STEERING WHEEL -->
-<!-- ================================== -->
-
-<h2 class="section-title" id="steering">
-    🎮 BUSSID STEERING WHEEL MOD
-</h2>
-
-<div class="mod-card" data-search="bussid steering wheel realistic">
-
-    <div class="mod-heading">
-        🎮 BUSSID STEERING WHEEL MOD
     </div>
-
-    <details class="mod-details">
-
-        <summary>📂 SHOW VERSIONS</summary>
-
-        <div class="version-content">
-
-            <details>
-
-                <summary>VERSION 1 — BUSSID V4.5.2</summary>
-
-                <div class="version-content">
-
-                    <h2 class="big-title">
-                        BUSSID V4.5.2 REALISTIC STEERING WHEEL MOD
-                    </h2>
-
-                    <p>🎬 Watch the Steering Wheel MOD video.</p>
-
-                    <div class="video-box">
-
-                        <iframe
-                            src="https://www.youtube-nocookie.com/embed/7lbKLJHIqeo"
-                            title="BUSSID V4.5.2 Steering Wheel MOD"
-                            loading="lazy"
-                            allowfullscreen>
-                        </iframe>
-
-                    </div>
-
-                    <a
-                        class="btn video-btn"
-                        href="https://youtu.be/7lbKLJHIqeo"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        ▶ WATCH ON YOUTUBE
-                    </a>
-
-                    <a
-                        class="btn"
-                        href="https://sharemods.com/1ysqyf4rvjgz/Bussid_V4.5.2_Top_4_Steering_Wheel_Mod.7z.html"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        ⬇ DOWNLOAD STEERING WHEEL MOD
-                    </a>
-
-                </div>
-
-            </details>
-
-        </div>
-
-    </details>
-
-</div>
-
-
-<!-- ================================== -->
-<!-- WHEEL CAP -->
-<!-- ================================== -->
-
-<h2 class="section-title" id="wheelcap">
-    🛞 BUSSID WHEEL CAP MOD
-</h2>
-
-<div class="mod-card" data-search="bussid wheel cap rim tyre">
-
-    <div class="mod-heading">
-        🛞 BUSSID WHEEL CAP MOD
-    </div>
-
-    <details class="mod-details">
-
-        <summary>📂 SHOW VERSIONS</summary>
-
-        <div class="version-content">
-
-            <details>
-
-                <summary>VERSION 1 — BUSSID V4.5.2</summary>
-
-                <div class="version-content">
-
-                    <h2 class="big-title">
-                        BUSSID V4.5.2 WHEEL CAP MOD
-                    </h2>
-
-                    <p>🎬 Watch the Wheel Cap MOD video.</p>
-
-                    <a
-                        class="btn video-btn"
-                        href="https://www.youtube.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        ▶ WATCH VIDEO
-                    </a>
-
-                    <a
-                        class="btn disabled-btn"
-                        href="#"
-                        onclick="return false;"
-                    >
-                        ⬇ DOWNLOAD LINK NOT ADDED
-                    </a>
-
-                </div>
-
-            </details>
-
-        </div>
-
-    </details>
-
-</div>
-
-
-<!-- ================================== -->
-<!-- KSRTC -->
-<!-- ================================== -->
-
-<h2 class="section-title" id="ksrtc">
-    🚌 KSRTC BUS LIVERIES
-</h2>
-
-<div class="mod-card" data-search="ksrtc bus livery bussid">
-
-    <div class="mod-heading">
-        🚌 KSRTC BUS LIVERIES
-    </div>
-
-    <details class="mod-details">
-
-        <summary>📂 SHOW VERSIONS</summary>
-
-        <div class="version-content">
-
-            <details>
-
-                <summary>VERSION 1 — BUSSID V4.5.2</summary>
-
-                <div class="version-content">
-
-                    <h2 class="big-title">
-                        BUSSID V4.5.2 KSRTC BUS LIVERY
-                    </h2>
-
-                    <p>🎬 Watch the KSRTC Livery video.</p>
-
-                    <a
-                        class="btn video-btn"
-                        href="https://www.youtube.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        ▶ WATCH VIDEO
-                    </a>
-
-                    <a
-                        class="btn disabled-btn"
-                        href="#"
-                        onclick="return false;"
-                    >
-                        ⬇ DOWNLOAD LINK NOT ADDED
-                    </a>
-
-                </div>
-
-            </details>
-
-        </div>
-
-    </details>
-
-</div>
-
-
-<!-- ================================== -->
-<!-- NWKRTC -->
-<!-- ================================== -->
-
-<h2 class="section-title" id="nwkrtc">
-    🚌 NWKRTC LIVERIES
-</h2>
-
-<div class="mod-card" data-search="nwkrtc bus livery bussid">
-
-    <div class="mod-heading">
-        🚌 NWKRTC LIVERIES
-    </div>
-
-    <details class="mod-details">
-
-        <summary>📂 SHOW VERSIONS</summary>
-
-        <div class="version-content">
-
-            <details>
-
-                <summary>VERSION 1 — BUSSID V4.5.2</summary>
-
-                <div class="version-content">
-
-                    <h2 class="big-title">
-                        BUSSID V4.5.2 NWKRTC BUS LIVERY
-                    </h2>
-
-                    <p>🎬 Watch the NWKRTC Livery video.</p>
-
-                    <a
-                        class="btn video-btn"
-                        href="https://www.youtube.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        ▶ WATCH VIDEO
-                    </a>
-
-                    <a
-                        class="btn disabled-btn"
-                        href="#"
-                        onclick="return false;"
-                    >
-                        ⬇ DOWNLOAD LINK NOT ADDED
-                    </a>
-
-                </div>
-
-            </details>
-
-        </div>
-
-    </details>
-
-</main>
-
-<!-- COPYRIGHT POLICY -->
-
-<footer class="footer" id="copyright">
-
-    <h2>© COPYRIGHT POLICY</h2>
-
-    <p>
-        © <span id="year"></span> RS GAMING MOD.
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+    <div class="container">
+        © <span id="year"></span>
+        <strong>RS GAMING MOD</strong>.
         All rights reserved.
-    </p>
-
-    <p>
-        This website provides links to third-party
-        download services, including ShareMods.
-    </p>
-
-    <p>
-        All third-party trademarks and content belong
-        to their respective owners.
-    </p>
-
-    <p>
-        Only content that you own or have permission
-        to share should be published.
-    </p>
-
-    <p>
-        For copyright concerns, contact:
-        AddYourEmail@example.com
-    </p>
-
-    <p style="margin-top:15px;">
-        Made with ❤️ by RS GAMING MOD
-    </p>
-
+    </div>
 </footer>
 
-<!-- SEARCH SCRIPT -->
-
 <script>
+
+/* =========================================
+   MOD INFORMATION
+
+   Add your MOD names, versions, video IDs
+   and download links here.
+========================================= */
+
+const mods = [
+
+    {
+        id: "realistic-rain",
+        name: "BUSSID REALISTIC RAIN 🌧️⛈️ MOD",
+        icon: "🌧️",
+        tag: "RAIN MOD",
+        description: "Discover realistic rain mods for BUSSID.",
+        versions: [
+            {
+                id: "rain-v452",
+                version: "V4.5.2",
+                title: "BUSSID V4.5.2 REALISTIC RAIN MOD",
+                description: "Realistic rain mod for BUSSID.",
+                videoId: "",
+                download: ""
+            }
+        ]
+    },
+
+    {
+        id: "steering-wheel",
+        name: "BUSSID STEERING WHEEL MOD",
+        icon: "🎮",
+        tag: "STEERING MOD",
+        description: "Explore steering wheel mods for BUSSID.",
+        versions: [
+            {
+                id: "steering-v452",
+                version: "V4.5.2",
+                title: "BUSSID TOP 4 STEERING WHEEL MOD",
+                description: "Top 4 steering wheel mod for BUSSID V4.5.2.",
+                videoId: "7lbKLJHIqeo",
+                download: "https://sharemods.com/1ysqyf4rvjgz/Bussid_V4.5.2_Top_4_Steering_Wheel_Mod.7z.html"
+            }
+        ]
+    },
+
+    {
+        id: "wheel-cap",
+        name: "BUSSID WHEEL CAP MOD",
+        icon: "🛞",
+        tag: "WHEEL CAP",
+        description: "Find wheel cap mods for BUSSID.",
+        versions: [
+            {
+                id: "wheelcap-v452",
+                version: "V4.5.2",
+                title: "BUSSID V4.5.2 WHEEL CAP MOD",
+                description: "Wheel cap mod for BUSSID V4.5.2.",
+                videoId: "",
+                download: ""
+            }
+        ]
+    },
+
+    {
+        id: "ksrtc-liveries",
+        name: "KSRTC BUS LIVERYS",
+        icon: "🚌",
+        tag: "KSRTC",
+        description: "Explore KSRTC bus liveries for BUSSID.",
+        versions: [
+            {
+                id: "ksrtc-v452",
+                version: "V4.5.2",
+                title: "BUSSID V4.5.2 KSRTC BUS LIVERYS",
+                description: "KSRTC bus liveries for BUSSID V4.5.2.",
+                videoId: "",
+                download: ""
+            }
+        ]
+    },
+
+    {
+        id: "nwkrtc-liveries",
+        name: "NWKRTC LIVERYS",
+        icon: "🚍",
+        tag: "NWKRTC",
+        description: "Explore NWKRTC bus liveries for BUSSID.",
+        versions: [
+            {
+                id: "nwkrtc-v452",
+                version: "V4.5.2",
+                title: "BUSSID V4.5.2 NWKRTC LIVERYS",
+                description: "NWKRTC bus liveries for BUSSID V4.5.2.",
+                videoId: "",
+                download: ""
+            }
+        ]
+    }
+
+];
+
+/* =========================================
+   PAGE ELEMENTS
+========================================= */
+
+const homePage = document.getElementById("homePage");
+const versionsPage = document.getElementById("versionsPage");
+const detailsPage = document.getElementById("detailsPage");
+
+const modsGrid = document.getElementById("modsGrid");
+const versionList = document.getElementById("versionList");
+const searchInput = document.getElementById("searchInput");
+const noResults = document.getElementById("noResults");
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
 
-const searchInput = document.getElementById("searchInput");
+/* =========================================
+   HOME PAGE / MOD CARDS
+========================================= */
 
-searchInput.addEventListener("input", function () {
+function renderMods(searchTerm = "") {
 
-    const searchText = this.value.toLowerCase().trim();
+    modsGrid.innerHTML = "";
 
-    const cards = document.querySelectorAll(".mod-card");
+    const query = searchTerm.trim().toLowerCase();
 
-    const titles = document.querySelectorAll(".section-title");
-
-    cards.forEach(function (card) {
-
-        const content = (
-            card.innerText + " " +
-            (card.dataset.search || "")
-        ).toLowerCase();
-
-        card.style.display =
-            content.includes(searchText) ? "" : "none";
-
+    const filteredMods = mods.filter(mod => {
+        return (
+            mod.name.toLowerCase().includes(query) ||
+            mod.description.toLowerCase().includes(query)
+        );
     });
 
-    titles.forEach(function (title) {
+    noResults.classList.toggle(
+        "hidden",
+        filteredMods.length !== 0
+    );
 
-        const sectionId = title.id;
+    filteredMods.forEach(mod => {
 
-        const sectionCards = document.querySelectorAll(
-            '.mod-card[data-search]'
-        );
+        const card = document.createElement("article");
 
-        let sectionHasVisibleCard = false;
+        card.className = "mod-card";
 
-        sectionCards.forEach(function (card) {
+        card.innerHTML = `
+            <div class="mod-art">
+                <span class="mod-tag">${escapeHTML(mod.tag)}</span>
+                <div class="mod-icon">${mod.icon}</div>
+            </div>
 
-            const previousTitle = card.previousElementSibling;
+            <div class="mod-content">
+                <h3>${escapeHTML(mod.name)}</h3>
 
-            if (
-                previousTitle &&
-                previousTitle.classList.contains("section-title") &&
-                previousTitle.id === sectionId &&
-                card.style.display !== "none"
-            ) {
-                sectionHasVisibleCard = true;
-            }
+                <p>${escapeHTML(mod.description)}</p>
 
+                <div class="card-bottom">
+                    <span class="version-label">
+                        ${mod.versions.length} VERSION
+                    </span>
+
+                    <button class="view-btn" type="button">
+                        EXPLORE MOD →
+                    </button>
+                </div>
+            </div>
+        `;
+
+        card.addEventListener("click", () => {
+            openVersions(mod.id);
         });
 
-        title.style.display =
-            sectionHasVisibleCard ? "" : "none";
+        modsGrid.appendChild(card);
+
+    });
+}
+
+searchInput.addEventListener("input", event => {
+    renderMods(event.target.value);
+});
+
+/* =========================================
+   VERSION PAGE
+========================================= */
+
+function openVersions(modId) {
+
+    const mod = mods.find(item => item.id === modId);
+
+    if (!mod) return;
+
+    hideAllPages();
+
+    versionsPage.classList.remove("hidden");
+
+    document.getElementById("versionsTitle").textContent =
+        mod.name;
+
+    document.getElementById("versionBreadcrumb").textContent =
+        mod.name;
+
+    versionList.innerHTML = "";
+
+    mod.versions.forEach(version => {
+
+        const card = document.createElement("div");
+
+        card.className = "version-card";
+
+        card.innerHTML = `
+            <div>
+                <h3>BUSSID ${escapeHTML(version.version)}</h3>
+                <p>${escapeHTML(version.title)}</p>
+            </div>
+
+            <span class="version-arrow">›</span>
+        `;
+
+        card.addEventListener("click", () => {
+            openDetails(mod.id, version.id);
+        });
+
+        versionList.appendChild(card);
 
     });
 
+    history.pushState(
+        { page: "versions", modId },
+        "",
+        "#mod-" + mod.id
+    );
+
+    window.scrollTo(0, 0);
+}
+
+/* =========================================
+   MOD DETAILS PAGE
+========================================= */
+
+function openDetails(modId, versionId) {
+
+    const mod = mods.find(item => item.id === modId);
+
+    if (!mod) return;
+
+    const version = mod.versions.find(
+        item => item.id === versionId
+    );
+
+    if (!version) return;
+
+    hideAllPages();
+
+    detailsPage.classList.remove("hidden");
+
+    document.getElementById("detailsTitle").textContent =
+        version.title;
+
+    document.getElementById("detailsDescription").textContent =
+        version.description;
+
+    document.getElementById("detailsModBreadcrumb").textContent =
+        mod.name;
+
+    document.getElementById("detailsModBreadcrumb").onclick = event => {
+        event.preventDefault();
+        openVersions(mod.id);
+    };
+
+    document.getElementById("detailsVersionBreadcrumb").textContent =
+        version.version;
+
+    document.getElementById("backToVersions").onclick = () => {
+        openVersions(mod.id);
+    };
+
+    /* VIDEO */
+
+    const videoContainer =
+        document.getElementById("videoContainer");
+
+    videoContainer.innerHTML = "";
+
+    if (version.videoId) {
+
+        const videoBox = document.createElement("div");
+
+        videoBox.className = "video-box";
+
+        const iframe = document.createElement("iframe");
+
+        iframe.src =
+            "https://www.youtube-nocookie.com/embed/" +
+            encodeURIComponent(version.videoId);
+
+        iframe.title = version.title + " video";
+
+        iframe.loading = "lazy";
+
+        iframe.allow =
+            "accelerometer; autoplay; clipboard-write; " +
+            "encrypted-media; gyroscope; picture-in-picture; web-share";
+
+        iframe.allowFullscreen = true;
+
+        videoBox.appendChild(iframe);
+
+        videoContainer.appendChild(videoBox);
+
+    } else {
+
+        const placeholder = document.createElement("div");
+
+        placeholder.className = "video-placeholder";
+
+        placeholder.innerHTML = `
+            <strong>VIDEO NOT ADDED YET</strong>
+            <span>The video will appear here after its YouTube ID is added.</span>
+        `;
+
+        videoContainer.appendChild(placeholder);
+
+    }
+
+    /* DOWNLOAD BUTTON */
+
+    const downloadButton =
+        document.getElementById("downloadButton");
+
+    if (version.download) {
+
+        downloadButton.href = version.download;
+
+        downloadButton.classList.remove("disabled");
+
+        downloadButton.setAttribute("aria-disabled", "false");
+
+        downloadButton.textContent = "⬇ DOWNLOAD MOD";
+
+        downloadButton.onclick = null;
+
+    } else {
+
+        downloadButton.href = "#";
+
+        downloadButton.classList.add("disabled");
+
+        downloadButton.setAttribute("aria-disabled", "true");
+
+        downloadButton.textContent = "DOWNLOAD LINK NOT ADDED";
+
+        downloadButton.onclick = event => {
+            event.preventDefault();
+        };
+
+    }
+
+    history.pushState(
+        {
+            page: "details",
+            modId,
+            versionId
+        },
+        "",
+        "#mod-" + mod.id + "-" + version.id
+    );
+
+    window.scrollTo(0, 0);
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+function hideAllPages() {
+
+    homePage.classList.add("hidden");
+
+    versionsPage.classList.add("hidden");
+
+    detailsPage.classList.add("hidden");
+
+}
+
+function goHome(section = "") {
+
+    hideAllPages();
+
+    homePage.classList.remove("hidden");
+
+    history.pushState(
+        { page: "home" },
+        "",
+        section ? "#" + section : "#home"
+    );
+
+    window.scrollTo(0, 0);
+
+    if (section === "mods" || section === "copyright") {
+
+        setTimeout(() => {
+
+            const element = document.getElementById(section);
+
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+
+        }, 50);
+
+    }
+}
+
+/* Browser back / forward buttons */
+
+window.addEventListener("popstate", event => {
+
+    const state = event.state;
+
+    if (!state || state.page === "home") {
+
+        hideAllPages();
+
+        homePage.classList.remove("hidden");
+
+        return;
+    }
+
+    if (state.page === "versions") {
+        openVersionsFromHistory(state.modId);
+        return;
+    }
+
+    if (state.page === "details") {
+        openDetailsFromHistory(state.modId, state.versionId);
+    }
+
 });
+
+function openVersionsFromHistory(modId) {
+
+    const mod = mods.find(item => item.id === modId);
+
+    if (!mod) {
+        goHome();
+        return;
+    }
+
+    hideAllPages();
+
+    versionsPage.classList.remove("hidden");
+
+    document.getElementById("versionsTitle").textContent =
+        mod.name;
+
+    document.getElementById("versionBreadcrumb").textContent =
+        mod.name;
+
+    versionList.innerHTML = "";
+
+    mod.versions.forEach(version => {
+
+        const card = document.createElement("div");
+
+        card.className = "version-card";
+
+        card.innerHTML = `
+            <div>
+                <h3>BUSSID ${escapeHTML(version.version)}</h3>
+                <p>${escapeHTML(version.title)}</p>
+            </div>
+            <span class="version-arrow">›</span>
+        `;
+
+        card.addEventListener("click", () => {
+            openDetails(mod.id, version.id);
+        });
+
+        versionList.appendChild(card);
+
+    });
+
+}
+
+function openDetailsFromHistory(modId, versionId) {
+
+    const mod = mods.find(item => item.id === modId);
+
+    if (!mod) {
+        goHome();
+        return;
+    }
+
+    const version = mod.versions.find(
+        item => item.id === versionId
+    );
+
+    if (!version) {
+        goHome();
+        return;
+    }
+
+    /* Render the details without adding another history entry. */
+
+    hideAllPages();
+
+    detailsPage.classList.remove("hidden");
+
+    document.getElementById("detailsTitle").textContent =
+        version.title;
+
+    document.getElementById("detailsDescription").textContent =
+        version.description;
+
+    document.getElementById("detailsModBreadcrumb").textContent =
+        mod.name;
+
+    document.getElementById("detailsModBreadcrumb").onclick = event => {
+        event.preventDefault();
+        openVersions(mod.id);
+    };
+
+    document.getElementById("detailsVersionBreadcrumb").textContent =
+        version.version;
+
+    document.getElementById("backToVersions").onclick = () => {
+        openVersions(mod.id);
+    };
+
+    const videoContainer =
+        document.getElementById("videoContainer");
+
+    videoContainer.innerHTML = "";
+
+    if (version.videoId) {
+
+        const box = document.createElement("div");
+
+        box.className = "video-box";
+
+        const iframe = document.createElement("iframe");
+
+        iframe.src =
+            "https://www.youtube-nocookie.com/embed/" +
+            encodeURIComponent(version.videoId);
+
+        iframe.title = version.title + " video";
+
+        iframe.loading = "lazy";
+
+        iframe.allow =
+            "accelerometer; autoplay; clipboard-write; " +
+            "encrypted-media; gyroscope; picture-in-picture; web-share";
+
+        iframe.allowFullscreen = true;
+
+        box.appendChild(iframe);
+
+        videoContainer.appendChild(box);
+
+    } else {
+
+        videoContainer.innerHTML = `
+            <div class="video-placeholder">
+                <strong>VIDEO NOT ADDED YET</strong>
+                <span>Add the YouTube ID to display the video here.</span>
+            </div>
+        `;
+
+    }
+
+    const button = document.getElementById("downloadButton");
+
+    if (version.download) {
+
+        button.href = version.download;
+
+        button.classList.remove("disabled");
+
+        button.setAttribute("aria-disabled", "false");
+
+        button.textContent = "⬇ DOWNLOAD MOD";
+
+        button.onclick = null;
+
+    } else {
+
+        button.href = "#";
+
+        button.classList.add("disabled");
+
+        button.setAttribute("aria-disabled", "true");
+
+        button.textContent = "DOWNLOAD LINK NOT ADDED";
+
+        button.onclick = event => event.preventDefault();
+
+    }
+
+}
+
+/* =========================================
+   TEXT SAFETY
+========================================= */
+
+function escapeHTML(value) {
+
+    return String(value).replace(/[&<>"']/g, character => {
+
+        const entities = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        };
+
+        return entities[character];
+
+    });
+
+}
+
+/* =========================================
+   INITIAL PAGE
+========================================= */
+
+renderMods();
 
 </script>
 
