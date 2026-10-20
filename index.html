@@ -5,32 +5,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#101116">
-<title>RS GAMING MOD</title>
+<title>RS GAMING MOD - Livery Downloads</title>
 
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#101116;color:#fff;font-family:Arial,sans-serif}
 header{text-align:center;padding:24px 12px;background:#181921;border-bottom:2px solid #ffd43b}
-header h1{margin:0;color:#ffd43b;font-size:30px;font-weight:900}
+header h1{margin:0;color:#ffd43b;font-size:30px;font-weight:900;letter-spacing:1px}
 header p{font-size:12px;color:#ddd;margin:9px 0 0}
 main{max-width:1100px;margin:auto;padding:15px}
 .search{margin:18px 0}
 .search input{width:100%;padding:14px;border-radius:10px;border:1px solid #444;background:#22232c;color:#fff;font-size:16px}
-h2.section-title{text-align:center;color:#ffd43b;font-size:25px;margin:24px 0 18px}
+.section-title{text-align:center;color:#ffd43b;font-size:24px;margin:24px 0 18px}
 .category-grid,.livery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .category-card,.livery-card{background:#1b1c24;border:1px solid #30313b;border-radius:10px;overflow:hidden;cursor:pointer}
 .category-card img,.livery-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#292a32}
-.category-name{text-align:center;font-size:14px;font-weight:800;padding:12px 5px;color:#ffd43b;overflow-wrap:anywhere}
+.category-name{text-align:center;font-size:13px;font-weight:900;padding:12px 5px;color:#ffd43b;overflow-wrap:anywhere}
 .livery-name{text-align:center;font-size:14px;font-weight:bold;line-height:1.4;padding:12px 8px;color:#fff;overflow-wrap:anywhere}
-button{font-family:inherit}
 .back{padding:11px 16px;margin:5px 0 18px;background:#282933;border:1px solid #555;color:white;border-radius:8px;cursor:pointer}
 .video-box{background:#1b1c24;padding:12px;border-radius:12px}
 .video-box iframe{width:100%;aspect-ratio:16/9;display:block;border:0;border-radius:8px;background:#000}
-.watch{text-align:center;color:#ffd43b;font-size:12px;margin:12px 0 20px}
+.watch{text-align:center;color:#ffd43b;font-size:11px;margin:10px 0 18px}
 .watch a{color:#ffd43b;text-decoration:none}
 .download{display:block;width:100%;padding:15px;text-align:center;border:0;border-radius:8px;background:linear-gradient(90deg,#ffd43b,#ff9e25);color:#111;font-weight:900;font-size:16px;text-decoration:none}
-.download-caption{text-align:center;color:#ccc;font-size:11px;margin:9px 0 2px}
-.detail-title{text-align:center;font-size:21px;color:#ffd43b;line-height:1.4;margin:16px 0}
+.download-caption{text-align:center;color:#ccc;font-size:10px;margin:9px 0 2px}
+.detail-title{text-align:center;font-size:22px;color:#ffd43b;line-height:1.4;margin:15px 0}
 .empty{text-align:center;color:#bbb;padding:25px}
 footer{text-align:center;padding:24px 10px;color:#999;font-size:11px;border-top:1px solid #30313b;margin-top:25px}
 [hidden]{display:none!important}
@@ -40,6 +39,7 @@ footer{text-align:center;padding:24px 10px;color:#999;font-size:11px;border-top:
 </head>
 
 <body>
+
 <header>
   <h1>RS GAMING MOD</h1>
   <p>All Liveries in One App — Easy &amp; Fast Downloads</p>
@@ -47,7 +47,9 @@ footer{text-align:center;padding:24px 10px;color:#999;font-size:11px;border-top:
 
 <main>
   <div class="search">
-    <input id="search" type="search" placeholder="🔎 Search categories and liveries...">
+    <input id="search" type="search"
+      placeholder="🔎 Search liveries..."
+      aria-label="Search liveries">
   </div>
 
   <section id="category-page">
@@ -59,118 +61,58 @@ footer{text-align:center;padding:24px 10px;color:#999;font-size:11px;border-top:
     <button class="back" id="back-category">← Back to Categories</button>
     <h2 class="section-title" id="category-heading"></h2>
     <div id="livery-grid" class="livery-grid"></div>
-    <p id="no-liveries" class="empty" hidden>No liveries found.</p>
+    <p id="no-liveries" class="empty" hidden>
+      No liveries available in this category yet.
+    </p>
   </section>
 
   <section id="detail-page" hidden>
     <button class="back" id="back-liveries">← Back to Liveries</button>
     <div class="video-box">
       <div id="video-container"></div>
+
       <p class="watch">
-        <a id="watch-link" href="#" target="_blank" rel="noopener noreferrer">
-          Watch Full Video
-        </a>
+        <a id="watch-link" href="#" target="_blank"
+           rel="noopener noreferrer">Watch Full Video</a>
       </p>
+
       <h2 class="detail-title" id="detail-name"></h2>
-      <a id="download-button" class="download" href="#" target="_blank" rel="noopener noreferrer">
+
+      <a id="download-button" class="download"
+         href="#" target="_blank" rel="noopener noreferrer">
         DOWNLOAD
       </a>
+
       <p class="download-caption">Click To Download</p>
     </div>
   </section>
 </main>
 
-<footer>RS GAMING MOD · BUSSID LIVERIES</footer>
+<footer>
+  RS GAMING MOD · BUSSID LIVERIES · Easy &amp; Fast Downloads
+</footer>
 
 <script>
-/*
-  Replace category images, livery images, YouTube IDs
-  and ShareMods URLs with your actual content.
-  Image recommendations: use 16:9 images.
-*/
+const photoURL =
+"https://raw.githubusercontent.com/Rsgamingmod/RsGamingMod-/8723bc2c8bca058902c9f9d7c1c3f1138cf8ddcb/2026-10-20_15-49-14.jpg";
 
 const categories = [
-  {
-    id:"green",
-    name:"NWKRTC GREEN LIVERIES",
-    image:"https://placehold.co/800x450/176b38/ffffff?text=NWKRTC+GREEN"
-  },
-  {
-    id:"ksrtc",
-    name:"KSRTC LIVERIES",
-    image:"https://placehold.co/800x450/9d2028/ffffff?text=KSRTC"
-  },
-  {
-    id:"kkrtc",
-    name:"KKRTC LIVERIES",
-    image:"https://placehold.co/800x450/184f91/ffffff?text=KKRTC"
-  },
-  {
-    id:"red-silver",
-    name:"NWKRTC RED & SILVER",
-    image:"https://placehold.co/800x450/922b35/ffffff?text=RED+%26+SILVER"
-  },
-  {
-    id:"others",
-    name:"OTHER LIVERIES",
-    image:"https://placehold.co/800x450/373744/ffffff?text=OTHER+LIVERIES"
-  }
+  {id:"green", name:"NWKRTC GREEN LIVERIES", image:photoURL},
+  {id:"ksrtc", name:"KSRTC LIVERIES", image:photoURL},
+  {id:"kkrtc", name:"KKRTC LIVERIES", image:photoURL},
+  {id:"red-silver", name:"NWKRTC RED & SILVER", image:photoURL},
+  {id:"others", name:"OTHER LIVERIES", image:photoURL}
 ];
 
 const liveries = [
   {
-    id:"green-1",
-    category:"green",
-    name:"NWKRTC GREEN LIVERY NAME",
-    image:"https://placehold.co/800x450/176b38/ffffff?text=NWKRTC+GREEN+LIVERY",
-    youtubeId:"YOUR_VIDEO_ID",
-    sharemods:"https://sharemods.com/YOUR_FILE_LINK.html",
-    keywords:"nwkrtc green Karnataka bus"
-  },
-  {
-    id:"green-2",
-    category:"green",
-    name:"NWKRTC GREEN LIVERY 2",
-    image:"https://placehold.co/800x450/216d45/ffffff?text=GREEN+LIVERY+2",
-    youtubeId:"YOUR_VIDEO_ID",
-    sharemods:"https://sharemods.com/YOUR_FILE_LINK.html",
-    keywords:"nwkrtc green bus mod"
-  },
-  {
-    id:"ksrtc-1",
+    id:"bussin-1",
     category:"ksrtc",
-    name:"KSRTC LIVERY NAME",
-    image:"https://placehold.co/800x450/9d2028/ffffff?text=KSRTC+LIVERY",
-    youtubeId:"YOUR_VIDEO_ID",
-    sharemods:"https://sharemods.com/YOUR_FILE_LINK.html",
-    keywords:"ksrtc Karnataka bus"
-  },
-  {
-    id:"kkrtc-1",
-    category:"kkrtc",
-    name:"KKRTC LIVERY NAME",
-    image:"https://placehold.co/800x450/184f91/ffffff?text=KKRTC+LIVERY",
-    youtubeId:"YOUR_VIDEO_ID",
-    sharemods:"https://sharemods.com/YOUR_FILE_LINK.html",
-    keywords:"kkrtc bus"
-  },
-  {
-    id:"red-1",
-    category:"red-silver",
-    name:"NWKRTC RED & SILVER LIVERY",
-    image:"https://placehold.co/800x450/922b35/ffffff?text=RED+%26+SILVER",
-    youtubeId:"YOUR_VIDEO_ID",
-    sharemods:"https://sharemods.com/YOUR_FILE_LINK.html",
-    keywords:"nwkrtc red silver bus"
-  },
-  {
-    id:"other-1",
-    category:"others",
-    name:"OTHER BUS LIVERY NAME",
-    image:"https://placehold.co/800x450/373744/ffffff?text=OTHER+LIVERY",
-    youtubeId:"YOUR_VIDEO_ID",
-    sharemods:"https://sharemods.com/YOUR_FILE_LINK.html",
-    keywords:"other bus livery"
+    name:"BUSSIN 1 LIVERY",
+    image:photoURL,
+    youtubeId:"ERKcdOQJpvs",
+    sharemods:"https://sharemods.com/t6e8nqa5adrq/Ksrtc_Bussin_1_Livery.png.html",
+    keywords:"bussin 1 ksrtc bus livery"
   }
 ];
 
@@ -183,13 +125,16 @@ const categoryHeading=document.getElementById("category-heading");
 const search=document.getElementById("search");
 
 let activeCategory=null;
-let activeLivery=null;
 
-function makeCardImage(src,alt){
+function makeImage(url,name){
   const img=document.createElement("img");
-  img.src=src;
-  img.alt=alt;
+  img.src=url;
+  img.alt=name;
   img.loading="lazy";
+  img.onerror=()=>{
+    img.removeAttribute("src");
+    img.alt="Image unavailable";
+  };
   return img;
 }
 
@@ -206,7 +151,7 @@ function renderCategories(){
   results.forEach(c=>{
     const card=document.createElement("article");
     card.className="category-card";
-    card.appendChild(makeCardImage(c.image,c.name));
+    card.appendChild(makeImage(c.image,c.name));
 
     const name=document.createElement("div");
     name.className="category-name";
@@ -217,20 +162,20 @@ function renderCategories(){
     categoryGrid.appendChild(card);
   });
 
-  if(!results.length){
-    const p=document.createElement("p");
-    p.className="empty";
-    p.textContent="No categories or liveries found.";
-    categoryGrid.appendChild(p);
+  if(results.length===0){
+    const msg=document.createElement("p");
+    msg.className="empty";
+    msg.textContent="No categories or liveries found.";
+    categoryGrid.appendChild(msg);
   }
 }
 
 function openCategory(id){
   activeCategory=id;
+  search.value="";
   categoryPage.hidden=true;
   detailPage.hidden=true;
   liveryPage.hidden=false;
-  search.value="";
   categoryHeading.textContent=categories.find(c=>c.id===id).name;
   renderLiveries();
   window.scrollTo(0,0);
@@ -248,7 +193,7 @@ function renderLiveries(){
   results.forEach(l=>{
     const card=document.createElement("article");
     card.className="livery-card";
-    card.appendChild(makeCardImage(l.image,l.name));
+    card.appendChild(makeImage(l.image,l.name));
 
     const name=document.createElement("div");
     name.className="livery-name";
@@ -262,28 +207,19 @@ function renderLiveries(){
   document.getElementById("no-liveries").hidden=results.length>0;
 }
 
-function validVideoId(id){
+function validVideo(id){
   return /^[A-Za-z0-9_-]{11}$/.test(id||"");
 }
 
-function validDownloadLink(link){
-  try{
-    const u=new URL(link);
-    return u.protocol==="https:" &&
-      u.hostname==="sharemods.com" &&
-      !link.includes("YOUR_FILE_LINK");
-  }catch(e){return false;}
-}
-
 function openLivery(id){
-  activeLivery=liveries.find(l=>l.id===id);
-  if(!activeLivery)return;
+  const item=liveries.find(l=>l.id===id);
+  if(!item)return;
 
   categoryPage.hidden=true;
   liveryPage.hidden=true;
   detailPage.hidden=false;
 
-  document.getElementById("detail-name").textContent=activeLivery.name;
+  document.getElementById("detail-name").textContent=item.name;
 
   const container=document.getElementById("video-container");
   container.replaceChildren();
@@ -291,43 +227,39 @@ function openLivery(id){
   const watch=document.getElementById("watch-link");
   const download=document.getElementById("download-button");
 
-  if(validVideoId(activeLivery.youtubeId)){
+  if(validVideo(item.youtubeId)){
     const frame=document.createElement("iframe");
     frame.src="https://www.youtube-nocookie.com/embed/"+
-      encodeURIComponent(activeLivery.youtubeId);
-    frame.title=activeLivery.name+" release video";
+      encodeURIComponent(item.youtubeId);
+    frame.title=item.name+" Release Video";
     frame.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     frame.allowFullscreen=true;
     frame.loading="lazy";
     container.appendChild(frame);
 
-    watch.href="https://www.youtube.com/watch?v="+
-      encodeURIComponent(activeLivery.youtubeId);
+    watch.href="https://youtu.be/"+item.youtubeId;
   }else{
-    const message=document.createElement("p");
-    message.className="empty";
-    message.textContent="Add the correct YouTube video ID in the code.";
-    container.appendChild(message);
+    const msg=document.createElement("p");
+    msg.className="empty";
+    msg.textContent="YouTube video is not available.";
+    container.appendChild(msg);
     watch.href="#";
   }
 
+  download.href=item.sharemods;
   download.onclick=function(event){
-    if(!validDownloadLink(activeLivery.sharemods)){
+    if(!item.sharemods.startsWith("https://sharemods.com/")){
       event.preventDefault();
-      alert("Please add the correct ShareMods link for this livery.");
+      alert("Please add the correct ShareMods link.");
     }
   };
 
-  if(validDownloadLink(activeLivery.sharemods)){
-    download.href=activeLivery.sharemods;
-  }else{
-    download.href="#";
-  }
-
+  history.pushState({livery:id},"","?livery="+encodeURIComponent(id));
   window.scrollTo(0,0);
 }
 
 document.getElementById("back-category").addEventListener("click",()=>{
+  history.pushState({},"",window.location.pathname);
   activeCategory=null;
   liveryPage.hidden=true;
   detailPage.hidden=true;
@@ -338,6 +270,7 @@ document.getElementById("back-category").addEventListener("click",()=>{
 });
 
 document.getElementById("back-liveries").addEventListener("click",()=>{
+  history.pushState({},"",window.location.pathname);
   detailPage.hidden=true;
   liveryPage.hidden=false;
   renderLiveries();
@@ -352,7 +285,28 @@ search.addEventListener("input",()=>{
   }
 });
 
-renderCategories();
+window.addEventListener("popstate",()=>{
+  detailPage.hidden=true;
+  liveryPage.hidden=true;
+  categoryPage.hidden=false;
+  renderCategories();
+});
+
+function init(){
+  renderCategories();
+
+  const params=new URLSearchParams(window.location.search);
+  const id=params.get("livery");
+  const item=liveries.find(l=>l.id===id);
+
+  if(item){
+    activeCategory=item.category;
+    openLivery(item.id);
+  }
+}
+
+init();
 </script>
+
 </body>
 </html>
