@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101116">
+<title>RS GAMING MOD — Admin</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101116;color:#fff;font-family:Arial,sans-serif}
+header{padding:20px;text-align:center;background:#181921;border-bottom:2px solid #ffd43b}
+h1{color:#ffd43b;margin:0}
+main{max-width:850px;margin:auto;padding:16px}
+.panel{background:#1b1c24;border:1px solid #333541;border-radius:12px;padding:18px;margin:15px 0}
+label{display:block;font-size:13px;margin:13px 0 6px;color:#ddd}
+input,select,textarea{width:100%;padding:12px;background:#101116;border:1px solid #494b58;border-radius:8px;color:white;font-size:15px}
+button,.btn{border:0;border-radius:8px;padding:12px 15px;font-weight:bold;cursor:pointer;background:#ffd43b;color:#111;text-decoration:none;display:inline-block}
+button:disabled{opacity:.5;cursor:not-allowed}
+button.secondary{background:#343642;color:white}
+button.danger{background:#d94343;color:white}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.msg{white-space:pre-wrap;color:#ffd43b;font-size:13px}
+.small{color:#aaa;font-size:12px;line-height:1.5}
+.item{border-top:1px solid #393b45;padding:12px 0}
+.item strong{display:block}
+.item button{margin:8px 6px 0 0}
+.hidden{display:none!important}
+.row{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:650px){.row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+
+<body>
+<header>
+<h1>RS GAMING MOD</h1>
+<p>Private Livery Admin Panel</p>
+</header>
+
+<main>
+<div id="config-warning" class="panel hidden">
+<strong>Setup needed</strong>
+<p>Add your Supabase project URL and public key in admin.html.</p>
+</div>
+
+<section id="login-panel" class="panel">
+<h2>Admin Login</h2>
+<p class="small">Only an authorized admin account can publish and manage liveries.</p>
+
+<label for="username">Username</label>
+<input id="username" autocomplete="username" maxlength="40" placeholder="admin">
+
+<label for="password">Password</label>
+<input id="password" type="password" autocomplete="current-password" placeholder="Your password">
+
+<div class="actions"><button id="login">Login</button></div>
+<p id="login-msg" class="msg"></p>
+</section>
+
+<section id="app-panel" class="hidden">
+<div class="panel">
+<div class="actions" style="justify-content:space-between">
+<h2 id="form-heading">Add New Livery</h2>
+<button id="logout" type="button" class="secondary">Log out</button>
+</div>
+
+<form id="livery-form">
+<input id="edit-id" type="hidden">
+
+<label for="name">Livery name *</label>
+<input id="name" required maxlength="120" placeholder="KSRTC BUSSIN 2 LIVERY">
+
+<label for="category">Category *</label>
+<select id="category" required>
+<option value="green">NWKRTC GREEN LIVERIES</option>
+<option value="ksrtc">KSRTC LIVERIES</option>
+<option value="kkrtc">KKRTC LIVERIES</option>
+<option value="red-silver">NWKRTC RED & SILVER</option>
+<option value="others">OTHER LIVERIES</option>
+</select>
+
+<label for="keywords">Search keywords</label>
+<input id="keywords" maxlength="300" placeholder="ksrtc bus new livery">
+
+<div class="row">
+<div>
+<label for="image-url">Photo URL (optional)</label>
+<input id="image-url" type="url" placeholder="https://...">
+</div>
+<div>
+<label for="image-file">OR upload photo</label>
+<input id="image-file" type="file" accept="image/*">
+<p class="small">Maximum photo size: 10 MB.</p>
+</div>
+</div>
+
+<div class="row">
+<div>
+<label for="video-url">Video URL (YouTube or direct video)</label>
+<input id="video-url" type="url" placeholder="https://youtu.be/...">
+</div>
+<div>
+<label for="video-file">OR upload video</label>
+<input id="video-file" type="file" accept="video/mp4,video/webm,video/quicktime">
+<p class="small">Maximum video size: 50 MB. Use YouTube for larger videos.</p>
+</div>
+</div>
+
+<label for="download-url">Download URL (ShareMods or other HTTPS link) *</label>
+<input id="download-url" type="url" required placeholder="https://sharemods.com/...">
+
+<label for="published">Publishing status</label>
+<select id="published">
+<option value="true">Published — visible to visitors</option>
+<option value="false">Draft — hidden from visitors</option>
+</select>
+
+<div class="actions">
+<button type="submit" id="save">Save Livery</button>
+<button type="button" id="reset" class="secondary">Clear Form</button>
+</div>
+<p id="form-msg" class="msg"></p>
+</form>
+</div>
+
+<div class="panel">
+<h2>Manage Liveries</h2>
+<p class="small">Edit or delete existing liveries here.</p>
+<div id="items"></div>
+<p id="list-msg" class="msg"></p>
+</div>
+</section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* Add the SAME project URL and public key used in index.html.
+   NEVER put a service_role or secret key here. */
+
+const SUPABASE_URL="PASTE_SUPABASE_PROJECT_URL";
+const SUPABASE_KEY="PASTE_SUPABASE_PUBLISHABLE_OR_ANON_KEY";
+
+const BUCKET="livery-media";
+const MAX_IMAGE=10*1024*1024;
+const MAX_VIDEO=50*1024*1024;
+
+const $=id=>document.getElementById(id);
+const configured=SUPABASE_URL.startsWith("https://")&&
+ !SUPABASE_URL.includes("PASTE_")&&
+ !SUPABASE_KEY.includes("PASTE_");
+
+const db=configured
+ ?window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY)
+ :null;
+
+const categories={
+ green:"NWKRTC GREEN LIVERIES",
+ ksrtc:"KSRTC LIVERIES",
+ kkrtc:"KKRTC LIVERIES",
+ "red-silver":"NWKRTC RED & SILVER",
+ others:"OTHER LIVERIES"
+};
+
+let editing=null;
+
+if(!configured){
+ $("config-warning").classList.remove("hidden");
+ $("login").disabled=true;
+}
+
+function msg(id,text){$(id).textContent=text}
+
+function validHttps(value){
+ try{return new URL(value).protocol==="https:"}
+ catch{return false}
+}
+
+function safeName(name){
+ return name.normalize("NFKD")
+  .replace(/[^a-zA-Z0-9._-]+/g,"-")
+  .replace(/^-+|-+$/g,"")
+  .slice(-100)||"upload";
+}
+
+async function isAdmin(){
+ const {data:{user}}=await db.auth.getUser();
+ if(!user)return false;
+
+ const {data,error}=await db.from("admin_users")
+  .select("user_id")
+  .eq("user_id",user.id)
+  .maybeSingle();
+
+ return !error&&!!data;
+}
+
+async function setLoggedIn(){
+ const ok=await isAdmin();
+
+ $("login-panel").classList.toggle("hidden",ok);
+ $("app-panel").classList.toggle("hidden",!ok);
+
+ if(ok)await loadItems();
+ else await db.auth.signOut();
+}
+
+$("login").onclick=async()=>{
+ if(!db)return;
+
+ const username=$("username").value.trim().toLowerCase();
+ const password=$("password").value;
+
+ if(!/^[a-z0-9._-]{3,40}$/.test(username)){
+  msg("login-msg","Username must be 3–40 characters.");
+  return;
+ }
+
+ if(!password){
+  msg("login-msg","Enter your password.");
+  return;
+ }
+
+ msg("login-msg","Signing in…");
+ $("login").disabled=true;
+
+ try{
+  /* Username maps to a Supabase Auth email.
+     Example: admin -> admin@admin.rsgamingmod.com */
+  const email=username+"@admin.rsgamingmod.com";
+
+  const {error}=await db.auth.signInWithPassword({email,password});
+
+  if(error){
+   msg("login-msg","Login failed. Check your username/password and Auth setup.");
+   return;
+  }
+
+  if(!(await isAdmin())){
+   await db.auth.signOut();
+   msg("login-msg","This account is not authorized as an admin.");
+   return;
+  }
+
+  msg("login-msg","Login successful.");
+  await setLoggedIn();
+ }catch(err){
+  msg("login-msg","Login failed. Check your Supabase setup.");
+ }finally{
+  $("login").disabled=false;
+ }
+};
+
+$("logout").onclick=async()=>{
+ await db.auth.signOut();
+ editing=null;
+ resetForm();
+ await setLoggedIn();
+};
+
+async function uploadFile(file,kind){
+ if(!file)return null;
+
+ const max=kind==="image"?MAX_IMAGE:MAX_VIDEO;
+
+ if(file.size>max){
+  throw new Error(kind==="image"
+   ?"Photo is over 10 MB."
+   :"Video is over 50 MB. Use a YouTube link for larger videos.");
+ }
+
+ const allowed=kind==="image"
+  ?file.type.startsWith("image/")
+  :["video/mp4","video/webm","video/quicktime"].includes(file.type);
+
+ if(!allowed){
+  throw new Error("Unsupported "+kind+" file type.");
+ }
+
+ const path=kind+"/"+Date.now()+"-"+crypto.randomUUID()+"-"+safeName(file.name);
+
+ const {error}=await db.storage.from(BUCKET).upload(path,file,{
+  upsert:false,
+  contentType:file.type
+ });
+
+ if(error)throw error;
+
+ const {data}=db.storage.from(BUCKET).getPublicUrl(path);
+ return data.publicUrl;
+}
+
+function resetForm(){
+ editing=null;
+ $("livery-form").reset();
+ $("edit-id").value="";
+ $("form-heading").textContent="Add New Livery";
+ $("save").textContent="Save Livery";
+ msg("form-msg","");
+}
+
+$("reset").onclick=resetForm;
+
+$("livery-form").onsubmit=async e=>{
+ e.preventDefault();
+
+ if(!(await isAdmin())){
+  msg("form-msg","Admin session required. Please log in again.");
+  return;
+ }
+
+ const name=$("name").value.trim();
+ const category=$("category").value;
+
+ let imageUrl=$("image-url").value.trim();
+ let videoUrl=$("video-url").value.trim();
+ const downloadUrl=$("download-url").value.trim();
+
+ if(downloadUrl&&!validHttps(downloadUrl)){
+  msg("form-msg","Download URL must begin with https://");
+  return;
+ }
+ if(imageUrl&&!validHttps(imageUrl)){
+  msg("form-msg","Photo URL must begin with https://");
+  return;
+ }
+ if(videoUrl&&!validHttps(videoUrl)){
+  msg("form-msg","Video URL must begin with https://");
+  return;
+ }
+
+ $("save").disabled=true;
+ msg("form-msg","Uploading media and saving…");
+
+ try{
+  if($("image-file").files[0]){
+   imageUrl=await uploadFile($("image-file").files[0],"image");
+  }
+
+  if($("video-file").files[0]){
+   videoUrl=await uploadFile($("video-file").files[0],"video");
+  }
+
+  const payload={
+   name,
+   category,
+   keywords:$("keywords").value.trim(),
+   image_url:imageUrl||null,
+   video_url:videoUrl||null,
+   download_url:downloadUrl,
+   published:$("published").value==="true"
+  };
+
+  let result;
+
+  if(editing){
+   result=await db.from("liveries").update(payload)
+    .eq("id",editing).select().single();
+  }else{
+   result=await db.from("liveries").insert(payload)
+    .select().single();
+  }
+
+  if(result.error)throw result.error;
+
+  msg("form-msg","Saved successfully. "+
+   (payload.published
+    ?"Livery is now visible to visitors."
+    :"Livery saved as a draft."));
+
+  resetForm();
+  await loadItems();
+
+ }catch(err){
+  console.error(err);
+  msg("form-msg","Save failed: "+(err.message||"Check Supabase setup and policies."));
+ }finally{
+  $("save").disabled=false;
+ }
+};
+
+async function loadItems(){
+ msg("list-msg","Loading…");
+
+ const {data,error}=await db.from("liveries")
+  .select("*")
+  .order("created_at",{ascending:false});
+
+ if(error){
+  msg("list-msg","Could not load items. Check SQL policies.");
+  return;
+ }
+
+ const host=$("items");
+ host.replaceChildren();
+
+ if(!data.length){
+  host.textContent="No liveries added yet.";
+  msg("list-msg","");
+  return;
+ }
+
+ data.forEach(l=>{
+  const div=document.createElement("div");
+  div.className="item";
+
+  const title=document.createElement("strong");
+  title.textContent=l.name+" — "+(categories[l.category]||l.category);
+
+  const status=document.createElement("span");
+  status.className="small";
+  status.textContent=l.published?"Published":"Draft";
+
+  const edit=document.createElement("button");
+  edit.textContent="Edit";
+  edit.onclick=()=>editItem(l);
+
+  const del=document.createElement("button");
+  del.textContent="Delete";
+  del.className="danger";
+  del.onclick=()=>deleteItem(l);
+
+  div.append(title,status,document.createElement("br"),edit,del);
+  host.appendChild(div);
+ });
+
+ msg("list-msg",data.length+" livery/liveries");
+}
+
+function editItem(l){
+ editing=l.id;
+ $("edit-id").value=l.id;
+ $("name").value=l.name;
+ $("category").value=l.category;
+ $("keywords").value=l.keywords||"";
+ $("image-url").value=l.image_url||"";
+ $("video-url").value=l.video_url||"";
+ $("download-url").value=l.download_url||"";
+ $("published").value=String(l.published);
+ $("image-file").value="";
+ $("video-file").value="";
+ $("form-heading").textContent="Edit Livery";
+ $("save").textContent="Update Livery";
+ msg("form-msg","Keep existing media URLs to retain the current media.");
+ window.scrollTo(0,0);
+}
+
+async function deleteItem(l){
+ if(!confirm('Delete "'+l.name+'"? This cannot be undone.'))return;
+
+ const {error}=await db.from("liveries").delete().eq("id",l.id);
+
+ if(error){
+  msg("list-msg","Delete failed: "+error.message);
+  return;
+ }
+
+ if(editing===l.id)resetForm();
+ await loadItems();
+}
+
+if(db){
+ db.auth.onAuthStateChange(()=>{
+  setTimeout(()=>setLoggedIn(),0);
+ });
+
+ db.auth.getSession().then(({data})=>{
+  if(data.session)setLoggedIn();
+ });
+}
+</script>
+</body>
+</html>
