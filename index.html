@@ -4,218 +4,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07111f">
 <title>RS GAMING MOD</title>
 
 <style>
-:root {
-  --bg: #07111f;
-  --card: #101e30;
-  --red: #ff304f;
-  --green: #21db8b;
-  --text: #ffffff;
-  --muted: #b8c5d6;
-  --border: #26364b;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-* { box-sizing: border-box; }
-
 body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
+    background: #07111f;
+    color: white;
+    font-family: Arial, sans-serif;
 }
 
 header {
-  text-align: center;
-  padding: 25px 12px;
-  background: linear-gradient(135deg, #101e30, #172b46);
-  border-bottom: 2px solid var(--red);
+    background: #101e33;
+    text-align: center;
+    padding: 25px 12px;
+    border-bottom: 2px solid #ff304f;
 }
 
-.logo {
-  margin: 0;
-  font-size: clamp(27px, 6vw, 43px);
-  font-weight: 900;
-  background: linear-gradient(90deg, #ff304f, #ffb52e, #21db8b, #31baff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+header h1 {
+    color: #ff304f;
+    font-size: 32px;
+    font-weight: 900;
 }
 
 header p {
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 0;
+    margin-top: 10px;
+    color: #21db8b;
+    font-size: 13px;
 }
 
 nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 13px;
-  background: #0b1727;
-  border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background: #0b1728;
 }
 
-button {
-  cursor: pointer;
-  border: 0;
-  border-radius: 8px;
-  padding: 12px 16px;
-  font-weight: bold;
+nav a {
+    color: white;
+    text-decoration: none;
+    background: #172940;
+    padding: 10px 16px;
+    border-radius: 7px;
+    font-weight: bold;
 }
 
-.nav-button {
-  background: #192a40;
-  color: white;
+nav a:hover {
+    background: #ff304f;
 }
 
-.nav-button:hover { background: var(--red); }
+.search-box {
+    text-align: center;
+    padding: 20px 12px;
+}
+
+.search-box input {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px;
+    border: 2px solid #21db8b;
+    border-radius: 8px;
+    background: #101e33;
+    color: white;
+    font-size: 16px;
+}
 
 main {
-  width: min(1100px, 94%);
-  min-height: 55vh;
-  margin: 24px auto;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding: 15px;
 }
 
-.hero {
-  text-align: center;
-  padding: 24px 8px;
+.panel {
+    background: #101e33;
+    border: 1px solid #263b56;
+    border-radius: 14px;
+    padding: 25px 15px;
+    margin-bottom: 25px;
+    text-align: center;
 }
 
-.hero h2 {
-  font-size: clamp(22px, 5vw, 34px);
+.panel h2 {
+    color: #21db8b;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 18px;
 }
 
-.hero h2 span { color: var(--green); }
-.hero p { color: var(--muted); }
-
-.search-wrap {
-  max-width: 650px;
-  margin: 22px auto;
+.panel h3 {
+    color: #ff304f;
+    font-size: 22px;
+    margin: 20px 0;
+    text-align: center;
 }
 
-#search {
-  width: 100%;
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #344862;
-  background: var(--card);
-  color: white;
-  font-size: 16px;
-  outline: none;
+.video-box {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 20px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-#search:focus { border-color: var(--green); }
-
-.section-title {
-  font-size: 22px;
-  border-left: 4px solid var(--red);
-  padding-left: 12px;
-  margin: 28px 0 18px;
+.video-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+.download-button {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 18px auto 0;
+    padding: 17px 12px;
+    text-align: center;
+    background: #21db8b;
+    color: #06150e;
+    font-size: 21px;
+    font-weight: 900;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
 }
 
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
-  min-width: 0;
+.download-button:hover {
+    background: #ffffff;
+    color: #07111f;
 }
 
-.card h3, .card h2 { overflow-wrap: anywhere; }
-.card p { color: var(--muted); font-size: 14px; }
-
-.category-card {
-  text-align: center;
-  padding: 25px 10px;
-  cursor: pointer;
-  transition: .2s;
+.download-caption {
+    color: #ffcf55;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 12px;
 }
 
-.category-card:hover {
-  border-color: var(--green);
-  transform: translateY(-2px);
-}
-
-.category-icon { font-size: 35px; }
-
-.primary {
-  display: block;
-  width: 100%;
-  margin-top: 13px;
-  background: var(--green);
-  color: #061b13;
-  font-size: 15px;
-}
-
-.back {
-  background: #213750;
-  color: white;
-  margin-bottom: 18px;
-}
-
-.video-frame, .video-placeholder {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  border-radius: 9px;
-  background: #030914;
-}
-
-.video-placeholder {
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  text-align: center;
-  padding: 12px;
-}
-
-.download-note {
-  text-align: center;
-  color: var(--green);
-  font-size: 13px;
-  margin-top: 8px;
-}
-
-.empty {
-  color: var(--muted);
-  text-align: center;
-  padding: 30px 8px;
-}
-
-.policy {
-  line-height: 1.8;
-  color: var(--muted);
+.empty-message {
+    text-align: center;
+    color: #ffcf55;
+    padding: 20px;
 }
 
 footer {
-  text-align: center;
-  padding: 24px 12px;
-  margin-top: 40px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 13px;
+    margin-top: 25px;
+    background: #101e33;
+    text-align: center;
+    padding: 25px 12px;
+    color: #b7c5d8;
+    line-height: 1.8;
 }
 
-footer strong { color: var(--red); }
+footer strong {
+    color: #ff304f;
+}
 
-@media (max-width: 520px) {
-  main { width: 92%; }
-  .grid { gap: 10px; }
-  .card { padding: 11px; }
-  .card h3 { font-size: 15px; }
-  .category-card { padding: 20px 5px; }
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 27px;
+    }
+
+    .panel {
+        padding: 20px 12px;
+    }
+
+    .panel h2 {
+        font-size: 24px;
+    }
+
+    .panel h3 {
+        font-size: 19px;
+    }
+
+    .download-button {
+        font-size: 19px;
+    }
 }
 </style>
 </head>
@@ -223,593 +201,143 @@ footer strong { color: var(--red); }
 <body>
 
 <header>
-  <h1 class="logo">RS GAMING MOD</h1>
-  <p>ALL BUSSID / BUSSIN MODS — EASY &amp; FAST DOWNLOAD</p>
+    <h1>RS GAMING MOD</h1>
+    <p>BUSSID / BUSSIN MODS — EASY & FAST DOWNLOAD</p>
 </header>
 
 <nav>
-  <button class="nav-button" onclick="goHome()">HOME</button>
-  <button class="nav-button" onclick="showCategories()">CATEGORIES</button>
-  <button class="nav-button" onclick="showPolicy()">COPYRIGHT</button>
+    <a href="#" onclick="showHome(); return false;">HOME</a>
+    <a href="#mods">BUSSID MODS</a>
+    <a href="#copyright">COPYRIGHT</a>
 </nav>
 
-<main>
-  <section class="hero">
-    <h2>ALL <span>BUSSID / BUSSIN</span> MODS</h2>
-    <p>Choose your mod, select a version, watch the video and download.</p>
-    <div class="search-wrap">
-      <input id="search" type="search"
-        placeholder="Search mods or versions..."
-        oninput="searchMods(this.value)">
-    </div>
-  </section>
+<div class="search-box">
+    <input
+        type="search"
+        id="searchInput"
+        placeholder="Search Mods..."
+        oninput="renderMods()"
+    >
+</div>
 
-  <section id="app"></section>
+<main>
+    <section id="mods">
+        <div id="modsContainer"></div>
+    </section>
 </main>
 
-<footer>
-  <strong>RS GAMING MOD</strong>
-  <p>BUSSID / BUSSIN MODS EASY &amp; FAST DOWNLOAD</p>
-  <p>© <span id="year"></span> RS GAMING MOD. All rights reserved.</p>
+<footer id="copyright">
+    <strong>RS GAMING MOD</strong>
+    <p>BUSSID / BUSSIN MODS</p>
+    <p>All rights belong to their respective owners.</p>
+    <p>© 2026 RS GAMING MOD</p>
 </footer>
 
 <script>
 /*
-  ADD NEW MODS HERE.
-  Photo fields are not used.
-  Add your own YouTube and ShareMods links.
+  NEW MOD ADD MADOKE:
+  Ee list nalli copy madi new item add madi.
+  video field ge YouTube video ID haki.
+  download field ge nimma download link haki.
 */
 
-const modsData = [
-  {
-    id: "realistic-rain",
-    category: "BUSSID",
-    name: "REALISTIC RAIN MOD",
-    icon: "🌧️",
-    versions: [
-      {
-        version: "V4.5.2",
-        liveries: [
-          {
-            name: "BUSSID V4.5.2 REALISTIC RAIN MOD",
-            video: "",
-            download: ""
-          }
-        ]
-      },
-      {
-        version: "V4.6",
-        liveries: [
-          {
-            name: "BUSSID V4.6 REALISTIC RAIN MOD",
-            video: "",
-            download: ""
-          }
-        ]
-      }
-    ]
-  },
-
-  {
-    id: "steering-wheel",
-    category: "BUSSID",
-    name: "STEERING WHEEL MOD",
-    icon: "🛞",
-    versions: [
-      {
-        version: "V4.5.2",
-        liveries: [
-          {
-            name: "TOP 4 STEERING WHEEL MOD",
-            video: "https://youtu.be/7lbKLJHIqeo",
-            download: "https://sharemods.com/1ysqyf4rvjgz/Bussid_V4.5.2_Top_4_Steering_Wheel_Mod.7z.html"
-          }
-        ]
-      },
-      {
-        version: "V4.6",
-        liveries: [
-          {
-            name: "STEERING WHEEL MOD V4.6",
-            video: "",
-            download: ""
-          }
-        ]
-      }
-    ]
-  },
-
-  {
-    id: "wheel-cap",
-    category: "BUSSID",
-    name: "WHEEL CAP MOD",
-    icon: "⚙️",
-    versions: [
-      {
-        version: "V4.5.2",
-        liveries: [
-          {
-            name: "BUSSID WHEEL CAP MOD",
-            video: "",
-            download: ""
-          }
-        ]
-      },
-      {
-        version: "V4.6",
-        liveries: [
-          {
-            name: "BUSSID WHEEL CAP MOD V4.6",
-            video: "",
-            download: ""
-          }
-        ]
-      }
-    ]
-  },
-
-  {
-    id: "speed",
-    category: "BUSSID",
-    name: "SPEED MOD",
-    icon: "🏎️",
-    versions: [
-      {
-        version: "V4.5.2",
-        liveries: [
-          {
-            name: "BUSSID SPEED MOD",
-            video: "",
-            download: ""
-          }
-        ]
-      },
-      {
-        version: "V4.6",
-        liveries: [
-          {
-            name: "BUSSID SPEED MOD V4.6",
-            video: "",
-            download: ""
-          }
-        ]
-      }
-    ]
-  },
-
-  {
-    id: "garage",
-    category: "BUSSID",
-    name: "GARAGE MOD",
-    icon: "🏠",
-    versions: [
-      {
-        version: "V4.5.2",
-        liveries: [
-          {
-            name: "BUSSID GARAGE MOD",
-            video: "",
-            download: ""
-          }
-        ]
-      },
-      {
-        version: "V4.6",
-        liveries: [
-          {
-            name: "BUSSID GARAGE MOD V4.6",
-            video: "",
-            download: ""
-          }
-        ]
-      }
-    ]
-  }
-
-  /*
-  TO ADD A BUSSIN MOD, ADD A COMMA AFTER THE LAST MOD ABOVE,
-  THEN ADD THIS OBJECT BEFORE THE CLOSING ]; 
-
-  {
-    id: "bussin-example",
-    category: "BUSSIN",
-    name: "BUSSIN MOD NAME",
-    icon: "🚌",
-    versions: [
-      {
-        version: "V1",
-        liveries: [
-          {
-            name: "BUSSIN MOD NAME",
-            video: "https://youtu.be/YOUR_VIDEO_ID",
-            download: "https://sharemods.com/YOUR_FILE.html"
-          }
-        ]
-      }
-    ]
-  }
-  */
+const mods = [
+    {
+        id: "steering-v452",
+        title: "BUSSID V4.5.2 TOP 4 STEERING WHEEL MOD",
+        video: "7lbKLJHIqeo",
+        download: "https://sharemods.com/1ysqyf4rvjgz/Bussid_V4.5.2_Top_4_Steering_Wheel_Mod.7z.html"
+    },
+    {
+        id: "ksrtc-bussin-1",
+        title: "BUSSIN 1 LIVERY",
+        video: "ERKcdOQJpvs",
+        download: "https://sharemods.com/t6e8nqa5adrq/Ksrtc_Bussin_1_Livery.png.html"
+    },
+    {
+        id: "realistic-rain",
+        title: "BUSSID V4.5.2 REALISTIC RAIN MOD",
+        video: "",
+        download: ""
+    },
+    {
+        id: "wheel-cap",
+        title: "BUSSID WHEEL CAP MOD",
+        video: "",
+        download: ""
+    }
 ];
 
-const app = document.getElementById("app");
-const searchInput = document.getElementById("search");
+function getModFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("mod");
+}
 
-let currentPage = "home";
-let currentCategory = "";
-let currentMod = null;
-let currentVersion = null;
-let currentSearch = "";
+function renderMods() {
+    const container = document.getElementById("modsContainer");
+    const search = document.getElementById("searchInput")
+        .value.trim().toLowerCase();
 
-document.getElementById("year").textContent = new Date().getFullYear();
+    const selectedMod = getModFromURL();
+
+    let filteredMods = mods.filter(mod => {
+        const matchesSearch = mod.title.toLowerCase().includes(search);
+        const matchesURL = !selectedMod || mod.id === selectedMod;
+        return matchesSearch && matchesURL;
+    });
+
+    if (filteredMods.length === 0) {
+        container.innerHTML =
+            '<p class="empty-message">No mods found.</p>';
+        return;
+    }
+
+    container.innerHTML = filteredMods.map(mod => {
+        const videoHTML = mod.video
+            ? `<div class="video-box">
+                 <iframe
+                    src="https://www.youtube.com/embed/${encodeURIComponent(mod.video)}"
+                    title="${escapeHTML(mod.title)}"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                 </iframe>
+               </div>`
+            : `<p class="empty-message">Video link will be added soon.</p>`;
+
+        const downloadHTML = mod.download
+            ? `<a class="download-button"
+                  href="${escapeHTML(mod.download)}"
+                  target="_blank"
+                  rel="noopener noreferrer">DOWNLOAD MOD</a>
+               <p class="download-caption">CLICK TO DOWNLOAD</p>`
+            : `<p class="empty-message">Download link will be added soon.</p>`;
+
+        return `
+            <article class="panel">
+                <h2>${escapeHTML(mod.title)}</h2>
+                ${videoHTML}
+                ${downloadHTML}
+            </article>
+        `;
+    }).join("");
+}
 
 function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[char]);
+    return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
 }
 
-function validLink(value) {
-  try {
-    const url = new URL(value);
-    return url.protocol === "https:" || url.protocol === "http:";
-  } catch {
-    return false;
-  }
+function showHome() {
+    window.location.href = window.location.pathname;
 }
 
-function getYouTubeEmbed(link) {
-  if (!link || !validLink(link)) return "";
-
-  try {
-    const url = new URL(link);
-    let id = "";
-
-    if (url.hostname === "youtu.be") {
-      id = url.pathname.slice(1).split("/")[0];
-    } else if (
-      url.hostname === "youtube.com" ||
-      url.hostname.endsWith(".youtube.com")
-    ) {
-      if (url.pathname === "/watch") {
-        id = url.searchParams.get("v") || "";
-      } else if (
-        url.pathname.startsWith("/embed/") ||
-        url.pathname.startsWith("/shorts/")
-      ) {
-        id = url.pathname.split("/")[2] || "";
-      }
-    }
-
-    if (!/^[a-zA-Z0-9_-]{11}$/.test(id)) return "";
-    return "https://www.youtube-nocookie.com/embed/" + id;
-  } catch {
-    return "";
-  }
-}
-
-function goHome() {
-  currentPage = "home";
-  currentCategory = "";
-  currentMod = null;
-  currentVersion = null;
-  currentSearch = "";
-  searchInput.value = "";
-  renderHome();
-  window.scrollTo(0, 0);
-}
-
-function showCategories() {
-  currentPage = "categories";
-  currentCategory = "";
-  currentMod = null;
-  currentVersion = null;
-
-  app.innerHTML = `
-    <h2 class="section-title">CATEGORIES</h2>
-    <div class="grid">
-      <div class="card category-card"
-        onclick="openCategory('BUSSID')">
-        <div class="category-icon">🚌</div>
-        <h3>BUSSID</h3>
-        <p>BUSSID Mods and Versions</p>
-        <button class="primary"
-          onclick="event.stopPropagation();openCategory('BUSSID')">
-          VIEW MODS
-        </button>
-      </div>
-
-      <div class="card category-card"
-        onclick="openCategory('BUSSIN')">
-        <div class="category-icon">🚍</div>
-        <h3>BUSSIN</h3>
-        <p>BUSSIN Mods and Versions</p>
-        <button class="primary"
-          onclick="event.stopPropagation();openCategory('BUSSIN')">
-          VIEW MODS
-        </button>
-      </div>
-    </div>`;
-  window.scrollTo(0, 0);
-}
-
-function showPolicy() {
-  currentPage = "policy";
-
-  app.innerHTML = `
-    <button class="back" onclick="goHome()">← HOME</button>
-    <div class="card policy">
-      <h2>Copyright Policy</h2>
-      <p>RS GAMING MOD respects the rights of content creators and copyright owners.</p>
-      <p>Videos may be embedded from YouTube. Download buttons may redirect visitors to third-party websites such as ShareMods.</p>
-      <p>We do not claim ownership of third-party content. All respective owners retain their rights.</p>
-      <p>Only upload or distribute files that you own or have permission to share.</p>
-      <p>Copyright concerns can be reported to the website owner with the relevant link and proof of ownership.</p>
-    </div>`;
-  window.scrollTo(0, 0);
-}
-
-function renderHome() {
-  currentPage = "home";
-
-  app.innerHTML = `
-    <h2 class="section-title">CATEGORIES</h2>
-    <div class="grid">
-      <div class="card category-card"
-        onclick="openCategory('BUSSID')">
-        <div class="category-icon">🚌</div>
-        <h3>BUSSID</h3>
-        <button class="primary"
-          onclick="event.stopPropagation();openCategory('BUSSID')">
-          VIEW MODS
-        </button>
-      </div>
-
-      <div class="card category-card"
-        onclick="openCategory('BUSSIN')">
-        <div class="category-icon">🚍</div>
-        <h3>BUSSIN</h3>
-        <button class="primary"
-          onclick="event.stopPropagation();openCategory('BUSSIN')">
-          VIEW MODS
-        </button>
-      </div>
-    </div>
-
-    <h2 class="section-title">ALL MODS</h2>
-    <div id="allMods" class="grid"></div>`;
-
-  renderModCards(modsData, document.getElementById("allMods"));
-}
-
-function renderModCards(mods, container) {
-  if (!container) return;
-
-  const query = currentSearch.trim().toLowerCase();
-
-  const filtered = mods.filter(mod => {
-    const versions = mod.versions.map(version =>
-      version.version + " " +
-      version.liveries.map(item => item.name).join(" ")
-    ).join(" ");
-
-    return (mod.name + " " + mod.category + " " + versions)
-      .toLowerCase().includes(query);
-  });
-
-  if (!filtered.length) {
-    container.innerHTML = `<div class="empty">No mods found.</div>`;
-    return;
-  }
-
-  container.innerHTML = filtered.map(mod => `
-    <div class="card">
-      <div class="category-icon">${escapeHTML(mod.icon || "🚌")}</div>
-      <p>${escapeHTML(mod.category)}</p>
-      <h3>${escapeHTML(mod.name)}</h3>
-      <p>${mod.versions.length} version(s) available</p>
-      <button class="primary"
-        onclick="openMod('${escapeHTML(mod.id)}')">
-        VIEW VERSIONS
-      </button>
-    </div>
-  `).join("");
-}
-
-function openCategory(category) {
-  currentPage = "category";
-  currentCategory = category;
-  currentMod = null;
-  currentVersion = null;
-
-  app.innerHTML = `
-    <button class="back" onclick="showCategories()">← CATEGORIES</button>
-    <h2 class="section-title">${escapeHTML(category)} MODS</h2>
-    <div id="categoryMods" class="grid"></div>`;
-
-  renderModCards(
-    modsData.filter(mod => mod.category === category),
-    document.getElementById("categoryMods")
-  );
-
-  window.scrollTo(0, 0);
-}
-
-function openMod(modId) {
-  const mod = modsData.find(item => item.id === modId);
-  if (!mod) return;
-
-  currentPage = "versions";
-  currentMod = mod;
-  currentVersion = null;
-
-  app.innerHTML = `
-    <button class="back"
-      onclick="openCategory('${escapeHTML(mod.category)}')">
-      ← BACK
-    </button>
-    <h2 class="section-title">${escapeHTML(mod.name)}</h2>
-    <div class="grid">
-      ${mod.versions.map((version, index) => `
-        <div class="card">
-          <h3>${escapeHTML(version.version)}</h3>
-          <button class="primary"
-            onclick="openVersion('${escapeHTML(mod.id)}', ${index})">
-            DOWNLOAD MOD
-          </button>
-        </div>
-      `).join("")}
-    </div>`;
-
-  window.scrollTo(0, 0);
-}
-
-function openVersion(modId, versionIndex) {
-  const mod = modsData.find(item => item.id === modId);
-  if (!mod || !mod.versions[versionIndex]) return;
-
-  currentPage = "details";
-  currentMod = mod;
-  currentVersion = mod.versions[versionIndex];
-
-  app.innerHTML = `
-    <button class="back"
-      onclick="openMod('${escapeHTML(mod.id)}')">
-      ← BACK TO VERSIONS
-    </button>
-    <h2 class="section-title">
-      ${escapeHTML(mod.name)} — ${escapeHTML(currentVersion.version)}
-    </h2>
-    <div id="liveryList" class="grid"></div>`;
-
-  const list = document.getElementById("liveryList");
-  const query = currentSearch.trim().toLowerCase();
-
-  const items = currentVersion.liveries.filter(item =>
-    !query ||
-    (item.name + " " + mod.name + " " + currentVersion.version)
-      .toLowerCase().includes(query)
-  );
-
-  if (!items.length) {
-    list.innerHTML = `<div class="empty">No matching mods found.</div>`;
-    return;
-  }
-
-  list.innerHTML = items.map(item => {
-    const embed = getYouTubeEmbed(item.video);
-
-    const video = embed
-      ? `<iframe class="video-frame"
-          src="${escapeHTML(embed)}"
-          title="${escapeHTML(item.name)}"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>`
-      : `<div class="video-placeholder">YOUTUBE VIDEO LINK NOT ADDED</div>`;
-
-    const download = validLink(item.download)
-      ? `<button class="primary"
-          onclick="openDownload('${escapeHTML(item.download)}')">
-          ⬇ DOWNLOAD
-        </button>`
-      : `<button class="primary" disabled
-          style="opacity:.6;cursor:not-allowed">
-          DOWNLOAD LINK NOT ADDED
-        </button>`;
-
-    return `
-      <article class="card">
-        <h2 style="text-align:center">${escapeHTML(item.name)}</h2>
-        ${video}
-        <p style="text-align:center">WATCH FULL VIDEO</p>
-        ${download}
-        <div class="download-note">CLICK TO DOWNLOAD</div>
-      </article>`;
-  }).join("");
-
-  window.scrollTo(0, 0);
-}
-
-function openDownload(link) {
-  if (!validLink(link)) {
-    alert("Please add a valid download link.");
-    return;
-  }
-  window.open(link, "_blank", "noopener,noreferrer");
-}
-
-function searchMods(value) {
-  currentSearch = value;
-
-  if (currentPage === "home") {
-    renderModCards(modsData, document.getElementById("allMods"));
-    return;
-  }
-
-  if (currentPage === "category") {
-    renderModCards(
-      modsData.filter(mod => mod.category === currentCategory),
-      document.getElementById("categoryMods")
-    );
-    return;
-  }
-
-  if (currentPage === "versions" && currentMod) {
-    const query = value.trim().toLowerCase();
-
-    const matches = currentMod.versions
-      .map((version, index) => ({ version, index }))
-      .filter(({ version }) =>
-        (currentMod.name + " " + version.version + " " +
-          version.liveries.map(item => item.name).join(" "))
-          .toLowerCase().includes(query)
-      );
-
-    app.innerHTML = `
-      <button class="back"
-        onclick="openCategory('${escapeHTML(currentMod.category)}')">
-        ← BACK
-      </button>
-      <h2 class="section-title">${escapeHTML(currentMod.name)}</h2>
-      <div class="grid">
-        ${matches.map(({ version, index }) => `
-          <div class="card">
-            <h3>${escapeHTML(version.version)}</h3>
-            <button class="primary"
-              onclick="openVersion('${escapeHTML(currentMod.id)}', ${index})">
-              DOWNLOAD MOD
-            </button>
-          </div>
-        `).join("")}
-      </div>`;
-
-    if (!matches.length) {
-      app.innerHTML += `<div class="empty">No matching mods found.</div>`;
-    }
-    return;
-  }
-
-  if (currentPage === "details" && currentMod && currentVersion) {
-    openVersion(
-      currentMod.id,
-      currentMod.versions.indexOf(currentVersion)
-    );
-  }
-}
-
-renderHome();
-
-const params = new URLSearchParams(window.location.search);
-const requestedMod = params.get("mod");
-
-if (requestedMod) {
-  const found = modsData.find(mod => mod.id === requestedMod);
-  if (found) openMod(found.id);
-}
+renderMods();
 </script>
 
 </body>
