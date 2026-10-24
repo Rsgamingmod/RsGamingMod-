@@ -4,110 +4,268 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
 <title>RS GAMING MOD</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+  --bg: #07111f;
+  --card: #101e30;
+  --red: #ff304f;
+  --green: #21db8b;
+  --text: #ffffff;
+  --muted: #b8c5d6;
+  --border: #26364b;
 }
 
+* { box-sizing: border-box; }
+
 body {
-    background: #07111f;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
 }
 
 header {
-    width: 100%;
-    padding: 18px 10px;
-    text-align: center;
-    background: #0c1b30;
-    border-bottom: 2px solid #ff304f;
+  text-align: center;
+  padding: 24px 12px;
+  background: linear-gradient(135deg, #101e30, #172b46);
+  border-bottom: 2px solid var(--red);
 }
 
-header h1 {
-    color: #ff304f;
-    font-size: 28px;
-    font-weight: 900;
+.logo {
+  font-size: clamp(27px, 6vw, 43px);
+  font-weight: 900;
+  margin: 0;
+  background: linear-gradient(90deg, #ff304f, #ffb52e, #21db8b, #31baff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.panel {
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
-    min-height: 75vh;
-    padding: 28px 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 24px;
+header p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 0;
 }
 
-.mod-title {
-    font-size: clamp(28px, 6vw, 48px);
-    font-weight: 900;
-    color: #ffffff;
-    line-height: 1.25;
-    overflow-wrap: anywhere;
-    text-transform: uppercase;
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 13px;
+  background: #0b1727;
+  border-bottom: 1px solid var(--border);
 }
 
-.video-container {
-    width: 100%;
-    max-width: 720px;
-    aspect-ratio: 16 / 9;
-    background: #000000;
-    border-radius: 12px;
-    overflow: hidden;
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 17px;
+  font-weight: bold;
 }
 
-.video-container iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
+.nav-button {
+  background: #192a40;
+  color: white;
 }
 
-.download-btn {
-    display: inline-block;
-    padding: 17px 35px;
-    background: #21db8b;
-    color: #06130d;
-    font-size: 21px;
-    font-weight: 900;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 0 18px rgba(33, 219, 139, 0.25);
+.nav-button:hover { background: var(--red); }
+
+main {
+  width: min(1000px, 94%);
+  margin: 24px auto;
+  min-height: 55vh;
 }
 
-.download-btn:active {
-    transform: scale(0.97);
+.hero {
+  text-align: center;
+  padding: 22px 10px;
 }
 
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 23px;
-    }
+.hero h2 {
+  font-size: clamp(22px, 5vw, 34px);
+}
 
-    .panel {
-        padding: 24px 12px;
-        gap: 22px;
-    }
+.hero h2 span { color: var(--green); }
 
-    .download-btn {
-        width: 100%;
-        max-width: 330px;
-        font-size: 19px;
-        padding: 16px 20px;
-    }
+.hero p { color: var(--muted); }
+
+.search-wrap {
+  max-width: 650px;
+  margin: 22px auto;
+}
+
+#search {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #344862;
+  background: #101e30;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+#search:focus { border-color: var(--green); }
+
+.section-title {
+  font-size: 22px;
+  border-left: 4px solid var(--red);
+  padding-left: 12px;
+  margin: 28px 0 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 0;
+}
+
+.card h3 { overflow-wrap: anywhere; }
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.category-card {
+  text-align: center;
+  padding: 28px 10px;
+  cursor: pointer;
+}
+
+.category-card:hover { border-color: var(--green); }
+
+.category-icon { font-size: 35px; }
+
+.primary {
+  background: var(--green);
+  color: #061b13;
+  display: block;
+  width: 100%;
+  margin-top: 13px;
+  font-size: 15px;
+}
+
+.back {
+  background: #213750;
+  color: white;
+  margin-bottom: 18px;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 30px 8px;
+}
+
+.policy {
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* MOD DOWNLOAD PAGE */
+
+.download-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 24px 0 36px;
+}
+
+.mod-heading {
+  width: 100%;
+  text-align: center;
+  font-size: clamp(25px, 6vw, 40px);
+  font-weight: 900;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  margin: 0;
+  color: #ffffff;
+}
+
+.video-box {
+  width: 100%;
+  max-width: 800px;
+}
+
+.video-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 10px;
+  background: #030914;
+}
+
+.video-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #101e30;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+}
+
+.download-wrap {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.download-button {
+  width: 100%;
+  padding: 18px 16px;
+  font-size: 20px;
+  font-weight: 900;
+  border-radius: 10px;
+  background: var(--green);
+  color: #061b13;
+}
+
+.download-button:hover { background: #44f2a8; }
+
+.download-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+footer {
+  text-align: center;
+  padding: 24px 12px;
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer strong { color: var(--red); }
+
+@media (max-width: 520px) {
+  main { width: 92%; }
+  .grid { gap: 10px; }
+  .card { padding: 11px; }
+  .category-card { padding: 22px 5px; }
+  .category-card h3,
+  .card h3 { font-size: 15px; }
+  .download-page { gap: 18px; }
 }
 </style>
 </head>
@@ -115,103 +273,581 @@ header h1 {
 <body>
 
 <header>
-    <h1>RS GAMING MOD</h1>
+  <h1 class="logo">RS GAMING MOD</h1>
+  <p>ALL BUSSID / BUSSIN MODS — EASY &amp; FAST DOWNLOAD</p>
 </header>
 
-<main class="panel">
+<nav>
+  <button class="nav-button" onclick="goHome()">HOME</button>
+  <button class="nav-button" onclick="showCategories()">MODS</button>
+  <button class="nav-button" onclick="showPolicy()">COPYRIGHT</button>
+</nav>
 
-    <h2 class="mod-title" id="modTitle">DOWNLOAD MOD</h2>
+<main>
+  <section class="hero">
+    <h2>ALL <span>BUSSID / BUSSIN</span> MODS</h2>
+    <p>Find your favourite mod and download easily.</p>
 
-    <div class="video-container">
-        <iframe
-            id="modVideo"
-            src="https://www.youtube.com/embed/ERKcdOQJpvs"
-            title="Mod Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-        </iframe>
+    <div class="search-wrap">
+      <input
+        id="search"
+        type="search"
+        placeholder="Search mods, versions..."
+        oninput="searchMods(this.value)"
+      >
     </div>
+  </section>
 
-    <a
-        id="downloadButton"
-        class="download-btn"
-        href="https://sharemods.com/t6e8nqa5adrq/Ksrtc_Bussin_1_Livery.png.html"
-        target="_blank"
-        rel="noopener noreferrer">
-        DOWNLOAD MOD
-    </a>
-
+  <section id="app"></section>
 </main>
+
+<footer>
+  <strong>RS GAMING MOD</strong>
+  <p>BUSSID / BUSSIN MODS EASY &amp; FAST DOWNLOAD</p>
+  <p>© <span id="year"></span> RS GAMING MOD. All rights reserved.</p>
+</footer>
 
 <script>
 /*
-  UPDATE THESE THREE VALUES WHEN YOU UPLOAD A NEW MOD.
-  No extra photos, videos, or text are displayed.
+DAILY UPDATE:
+Add new items inside the correct version's "liveries" array.
+Photo system has been removed.
+Only mod name, video and download link are used.
 */
 
-const MOD_TITLE = "BUSSIN 1 LIVERY";
+const modsData = [
+  {
+    id: "realistic-rain",
+    category: "BUSSID",
+    name: "REALISTIC RAIN MOD",
+    icon: "🌧️",
+    versions: [
+      {
+        version: "V4.5.2",
+        liveries: [
+          {
+            name: "BUSSID V4.5.2 REALISTIC RAIN MOD",
+            video: "",
+            download: ""
+          }
+        ]
+      },
+      {
+        version: "V4.6",
+        liveries: [
+          {
+            name: "BUSSID V4.6 REALISTIC RAIN MOD",
+            video: "",
+            download: ""
+          }
+        ]
+      }
+    ]
+  },
 
-const VIDEO_URL = "https://youtu.be/ERKcdOQJpvs";
+  {
+    id: "steering-wheel",
+    category: "BUSSID",
+    name: "STEERING WHEEL MOD",
+    icon: "🛞",
+    versions: [
+      {
+        version: "V4.5.2",
+        liveries: [
+          {
+            name: "TOP 4 STEERING WHEEL MOD",
+            video: "",
+            download: ""
+          }
+        ]
+      },
+      {
+        version: "V4.6",
+        liveries: [
+          {
+            name: "STEERING WHEEL MOD V4.6",
+            video: "",
+            download: ""
+          }
+        ]
+      }
+    ]
+  },
 
-const DOWNLOAD_URL =
-"https://sharemods.com/t6e8nqa5adrq/Ksrtc_Bussin_1_Livery.png.html";
+  {
+    id: "wheel-cap",
+    category: "BUSSID",
+    name: "WHEEL CAP MOD",
+    icon: "⚙️",
+    versions: [
+      {
+        version: "V4.5.2",
+        liveries: [
+          {
+            name: "BUSSID WHEEL CAP MOD",
+            video: "",
+            download: ""
+          }
+        ]
+      },
+      {
+        version: "V4.6",
+        liveries: [
+          {
+            name: "BUSSID WHEEL CAP MOD V4.6",
+            video: "",
+            download: ""
+          }
+        ]
+      }
+    ]
+  },
 
+  {
+    id: "speed",
+    category: "BUSSID",
+    name: "SPEED MOD",
+    icon: "🏎️",
+    versions: [
+      {
+        version: "V4.5.2",
+        liveries: [
+          {
+            name: "BUSSID SPEED MOD",
+            video: "",
+            download: ""
+          }
+        ]
+      },
+      {
+        version: "V4.6",
+        liveries: [
+          {
+            name: "BUSSID SPEED MOD V4.6",
+            video: "",
+            download: ""
+          }
+        ]
+      }
+    ]
+  },
 
-function getYouTubeEmbedUrl(url) {
-    try {
-        const parsed = new URL(url);
-        let videoId = "";
+  {
+    id: "garage",
+    category: "BUSSID",
+    name: "GARAGE MOD",
+    icon: "🏠",
+    versions: [
+      {
+        version: "V4.5.2",
+        liveries: [
+          {
+            name: "BUSSID GARAGE MOD",
+            video: "",
+            download: ""
+          }
+        ]
+      },
+      {
+        version: "V4.6",
+        liveries: [
+          {
+            name: "BUSSID GARAGE MOD V4.6",
+            video: "",
+            download: ""
+          }
+        ]
+      }
+    ]
+  }
 
-        if (parsed.hostname.includes("youtu.be")) {
-            videoId = parsed.pathname.split("/").filter(Boolean)[0] || "";
-        } else if (
-            parsed.hostname.includes("youtube.com") ||
-            parsed.hostname.includes("youtube-nocookie.com")
-        ) {
-            if (parsed.pathname === "/watch") {
-                videoId = parsed.searchParams.get("v") || "";
-            } else {
-                const parts = parsed.pathname.split("/").filter(Boolean);
-                const index = parts.findIndex(part =>
-                    ["embed", "shorts", "live"].includes(part)
-                );
+  /*
+  Add more BUSSIN mods here:
 
-                if (index !== -1) {
-                    videoId = parts[index + 1] || "";
-                }
-            }
-        }
+  ,
+  {
+    id: "bussin-example",
+    category: "BUSSIN",
+    name: "BUSSIN MOD NAME",
+    icon: "🚌",
+    versions: [
+      {
+        version: "V1",
+        liveries: [
+          {
+            name: "BUSSIN MOD NAME",
+            video: "YOUTUBE_VIDEO_LINK",
+            download: "SHAREMODS_LINK"
+          }
+        ]
+      }
+    ]
+  }
+  */
+];
 
-        if (!/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
-            return "";
-        }
+const app = document.getElementById("app");
+const searchInput = document.getElementById("search");
 
-        return "https://www.youtube.com/embed/" + videoId;
-    } catch (error) {
-        return "";
+let currentPage = "home";
+let currentMod = null;
+let currentVersion = null;
+let currentCategory = "";
+let currentSearch = "";
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function validLink(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" ||
+           url.protocol === "http:";
+  } catch {
+    return false;
+  }
+}
+
+function getYouTubeEmbed(link) {
+  if (!link || !validLink(link)) return "";
+
+  try {
+    const url = new URL(link);
+    let id = "";
+
+    if (url.hostname.includes("youtu.be")) {
+      id = url.pathname.slice(1);
+    } else if (
+      url.hostname.includes("youtube.com") ||
+      url.hostname.includes("youtube-nocookie.com")
+    ) {
+      if (url.pathname === "/watch") {
+        id = url.searchParams.get("v") || "";
+      } else if (
+        url.pathname.startsWith("/embed/") ||
+        url.pathname.startsWith("/shorts/")
+      ) {
+        id = url.pathname.split("/")[2] || "";
+      }
     }
+
+    if (!/^[a-zA-Z0-9_-]{11}$/.test(id)) return "";
+
+    return "https://www.youtube-nocookie.com/embed/" + id;
+  } catch {
+    return "";
+  }
 }
 
+function goHome() {
+  currentPage = "home";
+  currentMod = null;
+  currentVersion = null;
+  currentCategory = "";
+  currentSearch = "";
+  searchInput.value = "";
 
-document.getElementById("modTitle").textContent = MOD_TITLE;
-
-const embedUrl = getYouTubeEmbedUrl(VIDEO_URL);
-
-if (embedUrl) {
-    document.getElementById("modVideo").src = embedUrl;
-} else {
-    document.getElementById("modVideo").style.display = "none";
+  renderHome();
+  window.scrollTo(0, 0);
 }
 
-const downloadButton = document.getElementById("downloadButton");
+function showCategories() {
+  currentPage = "categories";
+  currentMod = null;
+  currentVersion = null;
 
-if (/^https:\/\/sharemods\.com\//i.test(DOWNLOAD_URL)) {
-    downloadButton.href = DOWNLOAD_URL;
-} else {
-    downloadButton.removeAttribute("href");
-    downloadButton.removeAttribute("target");
-    downloadButton.style.opacity = "0.5";
+  app.innerHTML = `
+    <h2 class="section-title">CATEGORIES</h2>
+
+    <div class="grid">
+      <div class="card category-card"
+           onclick="openCategory('BUSSID')">
+        <div class="category-icon">🚌</div>
+        <h3>BUSSID</h3>
+        <button class="primary">OPEN BUSSID</button>
+      </div>
+
+      <div class="card category-card"
+           onclick="openCategory('BUSSIN')">
+        <div class="category-icon">🚍</div>
+        <h3>BUSSIN</h3>
+        <button class="primary">OPEN BUSSIN</button>
+      </div>
+    </div>
+  `;
 }
+
+function showPolicy() {
+  currentPage = "policy";
+
+  app.innerHTML = `
+    <button class="back" onclick="goHome()">← HOME</button>
+
+    <div class="card policy">
+      <h2>Copyright Policy</h2>
+      <p>RS GAMING MOD respects content creators and copyright owners.</p>
+      <p>Videos may be embedded from YouTube. Download buttons may open third-party hosting websites.</p>
+      <p>We do not claim ownership of third-party content. All rights remain with their respective owners.</p>
+      <p>Only share files you own or have permission to distribute.</p>
+    </div>
+  `;
+}
+
+function renderHome() {
+  currentPage = "home";
+
+  app.innerHTML = `
+    <h2 class="section-title">CATEGORIES</h2>
+
+    <div class="grid">
+      <div class="card category-card"
+           onclick="openCategory('BUSSID')">
+        <div class="category-icon">🚌</div>
+        <h3>BUSSID</h3>
+        <button class="primary">VIEW MODS</button>
+      </div>
+
+      <div class="card category-card"
+           onclick="openCategory('BUSSIN')">
+        <div class="category-icon">🚍</div>
+        <h3>BUSSIN</h3>
+        <button class="primary">VIEW MODS</button>
+      </div>
+    </div>
+
+    <h2 class="section-title">ALL MODS</h2>
+    <div id="allMods" class="grid"></div>
+  `;
+
+  renderModCards(
+    modsData,
+    document.getElementById("allMods")
+  );
+}
+
+function renderModCards(mods, container) {
+  if (!container) return;
+
+  const query = currentSearch.trim().toLowerCase();
+
+  const filtered = mods.filter(mod =>
+    (
+      mod.name + " " +
+      mod.category + " " +
+      mod.versions.map(v => v.version).join(" ")
+    ).toLowerCase().includes(query)
+  );
+
+  if (!filtered.length) {
+    container.innerHTML =
+      `<div class="empty">No mods found.</div>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(mod => `
+    <div class="card">
+      <div class="category-icon">
+        ${escapeHTML(mod.icon || "🚌")}
+      </div>
+
+      <p>${escapeHTML(mod.category)}</p>
+      <h3>${escapeHTML(mod.name)}</h3>
+
+      <button class="primary"
+        onclick="openMod('${escapeHTML(mod.id)}')">
+        VIEW VERSIONS
+      </button>
+    </div>
+  `).join("");
+}
+
+function openCategory(category) {
+  currentPage = "category";
+  currentCategory = category;
+
+  app.innerHTML = `
+    <button class="back" onclick="goHome()">← HOME</button>
+
+    <h2 class="section-title">
+      ${escapeHTML(category)} MODS
+    </h2>
+
+    <div id="categoryMods" class="grid"></div>
+  `;
+
+  renderModCards(
+    modsData.filter(mod => mod.category === category),
+    document.getElementById("categoryMods")
+  );
+
+  window.scrollTo(0, 0);
+}
+
+function openMod(modId) {
+  const mod = modsData.find(item => item.id === modId);
+  if (!mod) return;
+
+  currentPage = "versions";
+  currentMod = mod;
+  currentVersion = null;
+
+  app.innerHTML = `
+    <button class="back"
+      onclick="openCategory('${escapeHTML(mod.category)}')">
+      ← BACK
+    </button>
+
+    <h2 class="section-title">
+      ${escapeHTML(mod.name)}
+    </h2>
+
+    <div class="grid">
+      ${mod.versions.map((version, index) => `
+        <div class="card">
+          <h3>${escapeHTML(version.version)}</h3>
+
+          <button class="primary"
+            onclick="openVersion('${escapeHTML(mod.id)}', ${index})">
+            DOWNLOAD MOD
+          </button>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  window.scrollTo(0, 0);
+}
+
+function openVersion(modId, versionIndex) {
+  const mod = modsData.find(item => item.id === modId);
+
+  if (!mod || !mod.versions[versionIndex]) return;
+
+  currentPage = "details";
+  currentMod = mod;
+  currentVersion = mod.versions[versionIndex];
+
+  app.innerHTML = `
+    <button class="back"
+      onclick="openMod('${escapeHTML(mod.id)}')">
+      ← BACK
+    </button>
+
+    <div id="downloadList"></div>
+  `;
+
+  const list = document.getElementById("downloadList");
+
+  list.innerHTML = currentVersion.liveries.map(item => {
+    const embed = getYouTubeEmbed(item.video);
+
+    const videoHTML = embed
+      ? `
+        <iframe
+          class="video-frame"
+          src="${escapeHTML(embed)}"
+          title="${escapeHTML(item.name)}"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      `
+      : `
+        <div class="video-placeholder">
+          VIDEO NOT ADDED
+        </div>
+      `;
+
+    const downloadHTML = validLink(item.download)
+      ? `
+        <button class="download-button"
+          onclick="openDownload('${escapeHTML(item.download)}')">
+          DOWNLOAD
+        </button>
+      `
+      : `
+        <button class="download-button" disabled>
+          DOWNLOAD
+        </button>
+      `;
+
+    return `
+      <div class="download-page">
+        <h1 class="mod-heading">
+          ${escapeHTML(item.name)}
+        </h1>
+
+        <div class="video-box">
+          ${videoHTML}
+        </div>
+
+        <div class="download-wrap">
+          ${downloadHTML}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function openDownload(link) {
+  if (!validLink(link)) return;
+
+  window.open(
+    link,
+    "_blank",
+    "noopener,noreferrer"
+  );
+}
+
+function searchMods(value) {
+  currentSearch = value;
+
+  if (currentPage === "home") {
+    renderModCards(
+      modsData,
+      document.getElementById("allMods")
+    );
+  } else if (currentPage === "category") {
+    renderModCards(
+      modsData.filter(mod =>
+        mod.category === currentCategory
+      ),
+      document.getElementById("categoryMods")
+    );
+  } else if (currentPage === "versions" && currentMod) {
+    const query = value.trim().toLowerCase();
+
+    const matches = (
+      currentMod.name + " " +
+      currentMod.versions.map(v => v.version).join(" ")
+    ).toLowerCase().includes(query);
+
+    if (query && !matches) {
+      app.innerHTML =
+        `<div class="empty">No mods found.</div>`;
+    } else if (!query) {
+      openMod(currentMod.id);
+    }
+  } else if (
+    currentPage === "details" &&
+    currentMod &&
+    !value.trim()
+  ) {
+    openMod(currentMod.id);
+  }
+}
+
+renderHome();
 </script>
 
 </body>
