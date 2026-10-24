@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#07111f">
 <title>RS GAMING MOD</title>
 
 <style>
@@ -14,134 +14,167 @@
     box-sizing: border-box;
 }
 
+:root {
+    --background: #07111f;
+    --panel: #101e33;
+    --red: #ff304f;
+    --green: #21db8b;
+    --white: #ffffff;
+}
+
 body {
-    background: #07111f;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
 }
 
 header {
+    padding: 26px 12px;
     text-align: center;
-    padding: 25px 12px;
-    background: #101e33;
-    border-bottom: 2px solid #ff304f;
+    background: var(--panel);
+    border-bottom: 2px solid var(--red);
 }
 
 header h1 {
-    color: #ff304f;
+    color: var(--red);
     font-size: 32px;
     font-weight: 900;
+    letter-spacing: 1px;
 }
 
 header p {
     margin-top: 10px;
-    color: #21db8b;
+    color: var(--green);
     font-size: 13px;
+    font-weight: bold;
 }
 
 nav {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    padding: 15px;
+    padding: 15px 10px;
     background: #0b1728;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    background: #172940;
+    display: inline-block;
     padding: 10px 16px;
-    border-radius: 7px;
+    color: var(--white);
+    background: #172940;
+    text-decoration: none;
+    font-size: 14px;
     font-weight: bold;
+    border-radius: 7px;
 }
 
 nav a:hover {
-    background: #ff304f;
+    background: var(--red);
 }
 
 main {
     width: 100%;
-    max-width: 900px;
-    margin: auto;
-    padding: 20px 15px;
+    max-width: 950px;
+    min-height: 45vh;
+    margin: 0 auto;
+    padding: 24px 15px;
 }
 
-#detailPage {
-    text-align: center;
+#modPage {
     width: 100%;
+    text-align: center;
 }
 
 #modTitle {
-    color: #21db8b;
-    font-size: 30px;
+    color: var(--green);
+    font-size: 32px;
     font-weight: 900;
     line-height: 1.4;
     text-align: center;
-    margin: 15px 0 22px;
+    overflow-wrap: anywhere;
+    margin: 10px auto 24px;
 }
 
-.video-box {
+.video-container {
     width: 100%;
-    max-width: 750px;
+    max-width: 760px;
     aspect-ratio: 16 / 9;
-    margin: 0 auto 22px;
-    background: #000000;
+    margin: 0 auto 24px;
+    background: #000;
     border-radius: 10px;
     overflow: hidden;
 }
 
-.video-box iframe {
+.video-container iframe {
+    display: block;
     width: 100%;
     height: 100%;
     border: 0;
-    display: block;
 }
 
 #downloadButton {
     display: block;
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     margin: 20px auto 0;
-    padding: 17px 12px;
-    background: #21db8b;
+    padding: 18px 12px;
+    background: var(--green);
     color: #07111f;
-    text-align: center;
     text-decoration: none;
-    font-size: 21px;
+    text-align: center;
+    font-size: 22px;
     font-weight: 900;
+    border: 0;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #downloadButton:hover {
-    background: #ffffff;
+    background: var(--white);
+    transform: translateY(-1px);
+}
+
+#modPage[hidden] {
+    display: none !important;
 }
 
 footer {
-    margin-top: 30px;
-    padding: 22px 12px;
+    margin-top: 25px;
+    padding: 24px 12px;
     text-align: center;
-    background: #101e33;
+    background: var(--panel);
     color: #b7c5d8;
     line-height: 1.8;
 }
 
 footer strong {
-    color: #ff304f;
+    color: var(--red);
+    font-size: 18px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     header h1 {
         font-size: 27px;
     }
 
+    header p {
+        font-size: 11px;
+    }
+
+    main {
+        padding: 20px 12px;
+    }
+
     #modTitle {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     #downloadButton {
-        font-size: 19px;
+        max-width: 320px;
+        font-size: 20px;
     }
 }
 </style>
@@ -151,33 +184,35 @@ footer strong {
 
 <header>
     <h1>RS GAMING MOD</h1>
-    <p>BUSSID / BUSSIN MODS — EASY & FAST DOWNLOAD</p>
+    <p>BUSSID / BUSSIN MODS — EASY &amp; FAST DOWNLOAD</p>
 </header>
 
 <nav>
     <a href="./">HOME</a>
     <a href="./#mods">BUSSID MODS</a>
-    <a href="./#copyright">COPYRIGHT</a>
+    <a href="#copyright">COPYRIGHT</a>
 </nav>
 
-<main>
-    <section id="detailPage" hidden>
+<main id="mods">
+    <section id="modPage" hidden>
         <h2 id="modTitle"></h2>
 
-        <div class="video-box">
+        <div class="video-container">
             <iframe
                 id="modVideo"
-                title="Mod Video"
+                title="Mod video"
                 allowfullscreen
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
             </iframe>
         </div>
 
-        <a id="downloadButton"
-           href="#"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a
+            id="downloadButton"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer">
             DOWNLOAD MOD
         </a>
     </section>
@@ -191,57 +226,89 @@ footer strong {
 
 <script>
 /*
-==========================================
-ADD YOUR MOD DETAILS HERE
-==========================================
+========================================
+RS GAMING MOD - MOD SETTINGS
+========================================
 
-id       = Unique mod link name
-title    = Big text shown on the last page
-video    = YouTube video ID
-download = Download link
+Every mod needs:
+1. id
+2. title
+3. video
+4. download
 
-No default mods are displayed.
-Add only the mods you want.
+You can add or update links below.
+No default mod cards or placeholder
+messages will be displayed.
 */
 
 const mods = [
     /*
-    Example:
+    Add your mod like this:
 
     {
-        id: "my-mod",
-        title: "MY BUSSID MOD",
+        id: "steering-v452",
+        title: "BUSSID V4.5.2 STEERING WHEEL MOD",
         video: "YOUR_YOUTUBE_VIDEO_ID",
-        download: "YOUR_DOWNLOAD_LINK"
-    }
+        download: "YOUR_SHAREMODS_LINK"
+    },
+
+    Add a comma between multiple mod objects.
     */
 ];
 
-function showModPage() {
-    const params = new URLSearchParams(window.location.search);
-    const modId = params.get("mod");
+function getModId() {
+    const url = new URL(window.location.href);
+    return url.searchParams.get("mod");
+}
+
+function isValidYouTubeId(id) {
+    return typeof id === "string" &&
+           /^[a-zA-Z0-9_-]{11}$/.test(id);
+}
+
+function showMod() {
+    const page = document.getElementById("modPage");
+    const title = document.getElementById("modTitle");
+    const video = document.getElementById("modVideo");
+    const button = document.getElementById("downloadButton");
+
+    const modId = getModId();
 
     const mod = mods.find(item => item.id === modId);
 
-    const detailPage = document.getElementById("detailPage");
-
-    if (!mod || !mod.title || !mod.video || !mod.download) {
-        detailPage.hidden = true;
+    if (!mod) {
+        page.hidden = true;
+        video.removeAttribute("src");
+        button.removeAttribute("href");
+        title.textContent = "";
         return;
     }
 
-    document.getElementById("modTitle").textContent = mod.title;
+    const modTitle = String(mod.title || "").trim();
+    const videoId = String(mod.video || "").trim();
+    const downloadLink = String(mod.download || "").trim();
 
-    document.getElementById("modVideo").src =
-        "https://www.youtube.com/embed/" +
-        encodeURIComponent(mod.video);
+    if (
+        !modTitle ||
+        !isValidYouTubeId(videoId) ||
+        !/^https?:\/\//i.test(downloadLink)
+    ) {
+        page.hidden = true;
+        return;
+    }
 
-    document.getElementById("downloadButton").href = mod.download;
+    title.textContent = modTitle;
 
-    detailPage.hidden = false;
+    video.src =
+        "https://www.youtube-nocookie.com/embed/" +
+        encodeURIComponent(videoId);
+
+    button.href = downloadLink;
+
+    page.hidden = false;
 }
 
-showModPage();
+showMod();
 </script>
 
 </body>
