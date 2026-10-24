@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>RS GAMING MOD</title>
 
 <style>
@@ -15,14 +16,14 @@
 
 body {
     background: #07111f;
-    color: white;
+    color: #ffffff;
     font-family: Arial, sans-serif;
 }
 
 header {
-    background: #101e33;
     text-align: center;
     padding: 25px 12px;
+    background: #101e33;
     border-bottom: 2px solid #ff304f;
 }
 
@@ -60,60 +61,33 @@ nav a:hover {
     background: #ff304f;
 }
 
-.search-box {
-    text-align: center;
-    padding: 20px 12px;
-}
-
-.search-box input {
-    width: 100%;
-    max-width: 500px;
-    padding: 14px;
-    border: 2px solid #21db8b;
-    border-radius: 8px;
-    background: #101e33;
-    color: white;
-    font-size: 16px;
-}
-
 main {
     width: 100%;
     max-width: 900px;
     margin: auto;
-    padding: 15px;
+    padding: 20px 15px;
 }
 
-.panel {
-    background: #101e33;
-    border: 1px solid #263b56;
-    border-radius: 14px;
-    padding: 25px 15px;
-    margin-bottom: 25px;
+#detailPage {
     text-align: center;
+    width: 100%;
 }
 
-.panel h2 {
+#modTitle {
     color: #21db8b;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 900;
     line-height: 1.4;
     text-align: center;
-    margin-bottom: 18px;
-}
-
-.panel h3 {
-    color: #ff304f;
-    font-size: 22px;
-    margin: 20px 0;
-    text-align: center;
+    margin: 15px 0 22px;
 }
 
 .video-box {
     width: 100%;
-    max-width: 720px;
-    margin: 0 auto 20px;
+    max-width: 750px;
     aspect-ratio: 16 / 9;
-    background: #000;
+    margin: 0 auto 22px;
+    background: #000000;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -121,51 +95,34 @@ main {
 .video-box iframe {
     width: 100%;
     height: 100%;
-    border: none;
+    border: 0;
     display: block;
 }
 
-.download-button {
+#downloadButton {
     display: block;
     width: 100%;
     max-width: 320px;
-    margin: 18px auto 0;
+    margin: 20px auto 0;
     padding: 17px 12px;
-    text-align: center;
     background: #21db8b;
-    color: #06150e;
+    color: #07111f;
+    text-align: center;
+    text-decoration: none;
     font-size: 21px;
     font-weight: 900;
-    text-decoration: none;
     border-radius: 10px;
-    border: none;
-    cursor: pointer;
 }
 
-.download-button:hover {
+#downloadButton:hover {
     background: #ffffff;
-    color: #07111f;
-}
-
-.download-caption {
-    color: #ffcf55;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 12px;
-}
-
-.empty-message {
-    text-align: center;
-    color: #ffcf55;
-    padding: 20px;
 }
 
 footer {
-    margin-top: 25px;
-    background: #101e33;
+    margin-top: 30px;
+    padding: 22px 12px;
     text-align: center;
-    padding: 25px 12px;
+    background: #101e33;
     color: #b7c5d8;
     line-height: 1.8;
 }
@@ -179,19 +136,11 @@ footer strong {
         font-size: 27px;
     }
 
-    .panel {
-        padding: 20px 12px;
-    }
-
-    .panel h2 {
+    #modTitle {
         font-size: 24px;
     }
 
-    .panel h3 {
-        font-size: 19px;
-    }
-
-    .download-button {
+    #downloadButton {
         font-size: 19px;
     }
 }
@@ -206,138 +155,93 @@ footer strong {
 </header>
 
 <nav>
-    <a href="#" onclick="showHome(); return false;">HOME</a>
-    <a href="#mods">BUSSID MODS</a>
-    <a href="#copyright">COPYRIGHT</a>
+    <a href="./">HOME</a>
+    <a href="./#mods">BUSSID MODS</a>
+    <a href="./#copyright">COPYRIGHT</a>
 </nav>
 
-<div class="search-box">
-    <input
-        type="search"
-        id="searchInput"
-        placeholder="Search Mods..."
-        oninput="renderMods()"
-    >
-</div>
-
 <main>
-    <section id="mods">
-        <div id="modsContainer"></div>
+    <section id="detailPage" hidden>
+        <h2 id="modTitle"></h2>
+
+        <div class="video-box">
+            <iframe
+                id="modVideo"
+                title="Mod Video"
+                allowfullscreen
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+            </iframe>
+        </div>
+
+        <a id="downloadButton"
+           href="#"
+           target="_blank"
+           rel="noopener noreferrer">
+            DOWNLOAD MOD
+        </a>
     </section>
 </main>
 
 <footer id="copyright">
     <strong>RS GAMING MOD</strong>
     <p>BUSSID / BUSSIN MODS</p>
-    <p>All rights belong to their respective owners.</p>
     <p>© 2026 RS GAMING MOD</p>
 </footer>
 
 <script>
 /*
-  NEW MOD ADD MADOKE:
-  Ee list nalli copy madi new item add madi.
-  video field ge YouTube video ID haki.
-  download field ge nimma download link haki.
+==========================================
+ADD YOUR MOD DETAILS HERE
+==========================================
+
+id       = Unique mod link name
+title    = Big text shown on the last page
+video    = YouTube video ID
+download = Download link
+
+No default mods are displayed.
+Add only the mods you want.
 */
 
 const mods = [
+    /*
+    Example:
+
     {
-        id: "steering-v452",
-        title: "BUSSID V4.5.2 TOP 4 STEERING WHEEL MOD",
-        video: "7lbKLJHIqeo",
-        download: "https://sharemods.com/1ysqyf4rvjgz/Bussid_V4.5.2_Top_4_Steering_Wheel_Mod.7z.html"
-    },
-    {
-        id: "ksrtc-bussin-1",
-        title: "BUSSIN 1 LIVERY",
-        video: "ERKcdOQJpvs",
-        download: "https://sharemods.com/t6e8nqa5adrq/Ksrtc_Bussin_1_Livery.png.html"
-    },
-    {
-        id: "realistic-rain",
-        title: "BUSSID V4.5.2 REALISTIC RAIN MOD",
-        video: "",
-        download: ""
-    },
-    {
-        id: "wheel-cap",
-        title: "BUSSID WHEEL CAP MOD",
-        video: "",
-        download: ""
+        id: "my-mod",
+        title: "MY BUSSID MOD",
+        video: "YOUR_YOUTUBE_VIDEO_ID",
+        download: "YOUR_DOWNLOAD_LINK"
     }
+    */
 ];
 
-function getModFromURL() {
+function showModPage() {
     const params = new URLSearchParams(window.location.search);
-    return params.get("mod");
-}
+    const modId = params.get("mod");
 
-function renderMods() {
-    const container = document.getElementById("modsContainer");
-    const search = document.getElementById("searchInput")
-        .value.trim().toLowerCase();
+    const mod = mods.find(item => item.id === modId);
 
-    const selectedMod = getModFromURL();
+    const detailPage = document.getElementById("detailPage");
 
-    let filteredMods = mods.filter(mod => {
-        const matchesSearch = mod.title.toLowerCase().includes(search);
-        const matchesURL = !selectedMod || mod.id === selectedMod;
-        return matchesSearch && matchesURL;
-    });
-
-    if (filteredMods.length === 0) {
-        container.innerHTML =
-            '<p class="empty-message">No mods found.</p>';
+    if (!mod || !mod.title || !mod.video || !mod.download) {
+        detailPage.hidden = true;
         return;
     }
 
-    container.innerHTML = filteredMods.map(mod => {
-        const videoHTML = mod.video
-            ? `<div class="video-box">
-                 <iframe
-                    src="https://www.youtube.com/embed/${encodeURIComponent(mod.video)}"
-                    title="${escapeHTML(mod.title)}"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                 </iframe>
-               </div>`
-            : `<p class="empty-message">Video link will be added soon.</p>`;
+    document.getElementById("modTitle").textContent = mod.title;
 
-        const downloadHTML = mod.download
-            ? `<a class="download-button"
-                  href="${escapeHTML(mod.download)}"
-                  target="_blank"
-                  rel="noopener noreferrer">DOWNLOAD MOD</a>
-               <p class="download-caption">CLICK TO DOWNLOAD</p>`
-            : `<p class="empty-message">Download link will be added soon.</p>`;
+    document.getElementById("modVideo").src =
+        "https://www.youtube.com/embed/" +
+        encodeURIComponent(mod.video);
 
-        return `
-            <article class="panel">
-                <h2>${escapeHTML(mod.title)}</h2>
-                ${videoHTML}
-                ${downloadHTML}
-            </article>
-        `;
-    }).join("");
+    document.getElementById("downloadButton").href = mod.download;
+
+    detailPage.hidden = false;
 }
 
-function escapeHTML(value) {
-    return String(value).replace(/[&<>"']/g, char => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-    })[char]);
-}
-
-function showHome() {
-    window.location.href = window.location.pathname;
-}
-
-renderMods();
+showModPage();
 </script>
 
 </body>
