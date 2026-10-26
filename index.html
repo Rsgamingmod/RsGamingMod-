@@ -1,516 +1,222 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b16">
-<title>RS Gaming Mod | BUSSID & BUSSIN</title>
-<meta name="description" content="RS Gaming Mod - Discover BUSSID and BUSSIN mods, versions, videos and downloads.">
+<meta name="theme-color" content="#080b14">
+<meta name="description" content="RS Gaming Mod — BUSSID and BUSSIN mods, versions, videos and downloads.">
+<title>RS Gaming Mod</title>
 <style>
-:root {
-  --bg:#080b16;
-  --panel:#12182b;
-  --border:#29334d;
-  --text:#f5f7ff;
-  --muted:#aab4cf;
-  --accent:#00e5ff;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;background:var(--bg);color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-}
-button,input{font:inherit}
-button{cursor:pointer}
-a{color:inherit}
-header{
-  padding:24px 14px 20px;text-align:center;
-  background:radial-gradient(ellipse at top,#18304e,#080b16 75%);
-  border-bottom:1px solid var(--border);
-}
-.logo{
-  margin:0;font-size:clamp(30px,8vw,48px);
-  font-weight:1000;letter-spacing:2px;
-  background:linear-gradient(90deg,#ff315a,#ffd740,#00f0ff,#b66aff,#ff315a);
-  background-size:300% auto;
-  -webkit-background-clip:text;background-clip:text;
-  color:transparent;
-  animation:rainbow 7s linear infinite;
-}
-@keyframes rainbow{
-  to{background-position:300% center}
-}
-.tagline{color:#dce6ff;font-size:14px;margin-top:10px}
-.wrap{max-width:1000px;margin:auto;padding:16px}
-.search{
-  width:100%;padding:15px 17px;border-radius:14px;
-  border:1px solid #354461;background:#11182a;
-  color:white;outline:none;margin:8px 0 20px;
-}
-.search:focus{border-color:var(--accent)}
-.section-title{
-  font-size:21px;font-weight:900;margin:20px 0 13px;
-}
-.games{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-}
-.game{
-  min-width:0;background:linear-gradient(145deg,#182440,#101524);
-  border:1px solid var(--border);border-radius:17px;
-  padding:14px 8px;text-align:center;
-}
-.game img{
-  width:100%;height:110px;object-fit:contain;
-  border-radius:10px;margin-bottom:8px;
-}
-.game h2{font-size:20px;margin:5px 0;color:#fff}
-.game p{font-size:12px;color:var(--muted);margin:5px 0}
-.category-grid,.version-grid{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:11px;
-}
-.category,.version{
-  text-align:left;color:white;width:100%;min-width:0;
-  border:1px solid #36425e;border-radius:13px;padding:15px 11px;
-  background:linear-gradient(130deg,#222c48,#12182a);
-  overflow-wrap:anywhere;transition:.2s;
-}
-.category:hover,.version:hover{
-  border-color:#00e5ff;transform:translateY(-2px);
-}
-.cat-name{font-size:13px;font-weight:900;line-height:1.5}
-.cat-sub{display:block;color:#aab4cf;font-size:11px;margin-top:7px}
-.card{
-  background:var(--panel);border:1px solid var(--border);
-  padding:17px;border-radius:16px;margin:13px 0;
-}
-.back{
-  border:1px solid #43506c;background:#172039;
-  color:white;border-radius:10px;padding:10px 14px;
-  margin:5px 0 15px;
-}
-.page-title{font-size:23px;overflow-wrap:anywhere;margin:10px 0}
-.mod-name{
-  font-size:clamp(25px,7vw,40px);font-weight:1000;
-  text-align:center;overflow-wrap:anywhere;
-  color:#fff;margin:24px 0;
-}
-.video{
-  width:100%;aspect-ratio:16/9;background:#05070d;
-  border:1px solid var(--border);border-radius:12px;
-}
-.download-wrap{text-align:center;margin:24px 0}
-.download{
-  display:inline-block;background:linear-gradient(90deg,#00c853,#00e5a8);
-  color:#04170e;text-decoration:none;font-weight:900;
-  padding:15px 35px;border-radius:12px;
-  border:0;width:min(100%,300px);
-}
-.download-note{font-size:12px;color:var(--muted);margin-top:10px}
-.muted{color:var(--muted);line-height:1.6}
-.hidden{display:none!important}
-.empty{padding:25px 10px;text-align:center;color:var(--muted)}
-footer{
-  border-top:1px solid var(--border);text-align:center;
-  padding:22px 12px;color:var(--muted);font-size:12px;margin-top:30px;
-}
-@media(min-width:650px){
- .wrap{padding:24px}
- .game img{height:160px}
- .category-grid,.version-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
+:root{--bg:#080b14;--panel:#111827;--panel2:#151f32;--text:#f4f7ff;--muted:#aab6ca;--line:#26344b;--accent:#00e5ff;--pink:#ff3cac;--green:#50fa7b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#18223a 0,#080b14 55%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+a{color:inherit}.wrap{width:min(1120px,92%);margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}.brand{font-weight:950;letter-spacing:.5px;font-size:clamp(1.2rem,4vw,1.8rem);text-decoration:none;background:linear-gradient(90deg,#ff3cac,#784bff,#00e5ff,#50fa7b,#ffce45,#ff3cac);background-size:300% 300%;color:transparent;background-clip:text;-webkit-background-clip:text;animation:rainbow 7s ease infinite}@keyframes rainbow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.navlink{color:var(--muted);text-decoration:none;font-weight:700}.hero{text-align:center;padding:42px 12px 28px}.hero h1{font-size:clamp(2rem,7vw,4rem);line-height:1.05;margin:0 0 15px;font-weight:1000;background:linear-gradient(90deg,#ff3cac,#00e5ff,#50fa7b,#ffce45);background-size:250%;background-clip:text;-webkit-background-clip:text;color:transparent;animation:rainbow 6s ease infinite}.hero p{color:var(--muted);font-size:clamp(1rem,2.8vw,1.15rem);margin:0 auto;max-width:720px}.searchbox{margin:25px auto 8px;max-width:650px;display:flex;gap:10px}.searchbox input{min-width:0;flex:1;padding:15px 17px;border-radius:14px;border:1px solid var(--line);background:#0c1321;color:white;font-size:1rem;outline:none}.searchbox input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #00e5ff22}.section-title{font-size:1.5rem;margin:28px 0 15px}.platform-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.platform{background:linear-gradient(145deg,#17243a,#101725);border:1px solid var(--line);border-radius:22px;padding:22px;min-width:0;box-shadow:0 12px 35px #0003}.platform-head{display:flex;align-items:center;gap:13px;margin-bottom:18px}.platform-head img{width:66px;height:66px;object-fit:cover;border-radius:50%;border:2px solid var(--accent);background:#fff}.platform h2{margin:0;font-size:1.45rem}.platform small{color:var(--muted)}.category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.category{display:flex;align-items:center;justify-content:center;text-align:center;min-height:84px;padding:14px 10px;border:1px solid #34445f;border-radius:15px;background:linear-gradient(140deg,#1c2940,#111a2a);color:#fff;font-weight:850;cursor:pointer;transition:transform .2s,border-color .2s,background .2s;line-height:1.25}.category:hover,.category:focus-visible{transform:translateY(-3px);border-color:var(--accent);background:#1a3043;outline:none}.category .emoji{display:block;font-size:1.35rem;margin-bottom:5px}.panel{margin:24px 0 38px;padding:22px;background:#0e1523;border:1px solid var(--line);border-radius:20px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.panel h2{margin:0 0 6px}.muted{color:var(--muted)}.back{border:1px solid #40516e;background:#18243a;color:white;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}.version-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:18px}.version{border:1px solid #34445f;background:#152138;color:white;padding:18px 12px;border-radius:14px;font-weight:900;cursor:pointer}.version:hover{border-color:var(--green);color:var(--green)}.detail{text-align:center}.detail h2{font-size:clamp(1.6rem,5vw,2.6rem);overflow-wrap:anywhere;margin:16px 0}.detail .mod-meta{color:var(--muted);margin-bottom:18px}.video{width:100%;max-width:800px;aspect-ratio:16/9;border:0;border-radius:15px;background:#000}.download{display:inline-block;margin:22px auto 8px;background:linear-gradient(90deg,#00d084,#00b9ff);color:#06111b;font-size:1.1rem;font-weight:1000;text-decoration:none;padding:16px 30px;border-radius:13px;box-shadow:0 8px 25px #00d08425}.download:hover{filter:brightness(1.08);transform:translateY(-1px)}.download-note{font-size:.88rem;color:var(--muted);margin-top:6px}.empty{color:var(--muted);padding:18px 0}.footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);text-align:center;font-size:.9rem}.hidden{display:none!important}.toast{margin:12px 0;color:#ffd166;font-size:.9rem}
+@media(max-width:700px){.platform-grid{grid-template-columns:1fr}.platform{padding:17px}.hero{padding-top:30px}.topbar{padding:14px 0}.category{min-height:78px}.panel{padding:16px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
-
-<header>
-  <h1 class="logo">RS GAMING MOD</h1>
-  <div class="tagline">BUSSID &amp; BUSSIN Mods — Easy And Fast Download</div>
+<div class="wrap">
+<header class="topbar">
+<a href="#" class="brand" id="homeBrand">RS Gaming Mod</a>
+<a class="navlink" href="#games">BUSSID &amp; BUSSIN</a>
 </header>
 
-<main class="wrap">
-  <input id="search" class="search" type="search"
-    placeholder="🔍 Search mod, category or version..."
-    aria-label="Search mods">
+<main>
+<section class="hero" id="home">
+<h1>RS Gaming Mod</h1>
+<p>BUSSID &amp; BUSSIN Mods — Easy And Fast Download</p>
+<div class="searchbox">
+<input id="search" type="search" placeholder="Search mods or categories..." aria-label="Search mods or categories">
+</div>
+</section>
 
-  <section id="home">
-    <h2 class="section-title">🎮 CHOOSE YOUR GAME</h2>
-    <div class="games">
-      <button class="game" onclick="openGame('BUSSID')">
-        <img
-          src="https://raw.githubusercontent.com/Rsgamingmod/RsGamingMod-/main/unnamed%20(2).png"
-          alt="BUSSID profile"
-          onerror="this.style.display='none'">
-        <h2>BUSSID</h2>
-        <p>Explore all BUSSID categories</p>
-      </button>
-      <button class="game" onclick="openGame('BUSSIN')">
-        <img
-          src="https://raw.githubusercontent.com/Rsgamingmod/RsGamingMod-/main/unnamed%20(1).png"
-          alt="BUSSIN profile"
-          onerror="this.style.display='none'">
-        <h2>BUSSIN</h2>
-        <p>Explore all BUSSIN categories</p>
-      </button>
-    </div>
+<section id="games">
+<h2 class="section-title">Choose Your Game</h2>
+<div class="platform-grid" id="platformGrid"></div>
+</section>
 
-    <h2 class="section-title">🔥 ALL CATEGORIES</h2>
-    <div id="allCategories" class="category-grid"></div>
-  </section>
-
-  <section id="categoryPage" class="hidden">
-    <button class="back" onclick="goHome()">← Home</button>
-    <h2 id="categoryTitle" class="page-title"></h2>
-    <p class="muted">Select a version to explore available mods.</p>
-    <div id="versions" class="version-grid"></div>
-  </section>
-
-  <section id="versionPage" class="hidden">
-    <button class="back" onclick="backToCategory()">← Versions</button>
-    <h2 id="versionTitle" class="page-title"></h2>
-    <div id="modsList"></div>
-  </section>
-
-  <section id="detailPage" class="hidden">
-    <button class="back" onclick="backToVersion()">← Mods</button>
-    <div class="card">
-      <p id="detailInfo" class="muted"></p>
-      <h1 id="detailName" class="mod-name"></h1>
-      <div id="videoArea"></div>
-      <div class="download-wrap">
-        <a id="downloadButton" class="download"
-          href="#" target="_blank" rel="noopener noreferrer">
-          ⬇ DOWNLOAD MOD
-        </a>
-        <div class="download-note">Click on Download to get your mod.</div>
-      </div>
-    </div>
-  </section>
-
-  <p id="status" class="muted" aria-live="polite">Loading mods...</p>
+<section id="results" class="panel hidden" aria-live="polite">
+<div class="panel-head">
+<div><h2 id="resultTitle">Mods</h2><div class="muted" id="resultSubtitle"></div></div>
+<button class="back" id="backButton" type="button">← Home</button>
+</div>
+<div id="resultBody"></div>
+</section>
 </main>
 
-<footer>
-  © <span id="year"></span> RS Gaming Mod · BUSSID &amp; BUSSIN
-</footer>
+<footer class="footer">© <span id="year"></span> RS Gaming Mod · Download files only from sources you trust.</footer>
+</div>
 
 <script>
-"use strict";
+/*
+  ADD A MOD:
+  Add a new object to MODS below. The website makes an internal ID automatically
+  and does not display that ID publicly.
+  GitHub Pages is static hosting: editing this data in the repository publishes
+  the new mod after the GitHub Pages build/update. No admin panel or Google Sheets.
+*/
+const PROFILES = {
+  BUSSID: "https://raw.githubusercontent.com/Rsgamingmod/RsGamingMod-/main/unnamed%20(2).png",
+  BUSSIN: "https://raw.githubusercontent.com/Rsgamingmod/RsGamingMod-/main/unnamed%20(1).png"
+};
 
 const CATEGORIES = [
-  "REALISTIC RAIN 🌧️⛈️ MOD",
-  "STEERING WHEEL MOD",
-  "WHEEL CAP MOD",
-  "GARAGE MOD"
+  {name:"REALISTIC RAIN 🌧️⛈️ MOD", icon:"🌧️"},
+  {name:"STEERING WHEEL MOD", icon:"🛞"},
+  {name:"WHEEL CAP MOD", icon:"⚙️"},
+  {name:"GARAGE MOD", icon:"🏠"}
 ];
 
-// Sample data lets the site work before mods.json is created.
-// Replace these examples with your own real mod details.
-const SAMPLE_MODS = [
-  {
-    game:"BUSSID",
-    category:"REALISTIC RAIN 🌧️⛈️ MOD",
-    version:"v4.6",
-    name:"Realistic Rain Mod Demo",
-    video:"",
-    download:"https://github.com/Rsgamingmod/RsGamingMod-"
-  },
+/* Example mod supplied by the site owner. Replace/add entries as you upload mods. */
+const MODS = [
   {
     game:"BUSSID",
     category:"STEERING WHEEL MOD",
-    version:"v4.5.2",
-    name:"Steering Wheel Mod Demo",
-    video:"",
-    download:"https://github.com/Rsgamingmod/RsGamingMod-"
-  },
-  {
-    game:"BUSSIN",
-    category:"WHEEL CAP MOD",
-    version:"v4.6",
-    name:"Wheel Cap Mod Demo",
-    video:"",
-    download:"https://github.com/Rsgamingmod/RsGamingMod-"
-  },
-  {
-    game:"BUSSIN",
-    category:"GARAGE MOD",
-    version:"v4.5.2",
-    name:"Garage Mod Demo",
-    video:"",
-    download:"https://github.com/Rsgamingmod/RsGamingMod-"
+    version:"V4.6",
+    name:"ASHOK LEYLAND STEERING WHEEL PACK",
+    video:"https://youtu.be/eZfmXlZqSEU",
+    download:"https://sharemods.com/8yf6gh81ry69/ASHOK_LEYLAND_STEERING_WHEEL_PACK.7z.html",
+    published:"2026-10-26"
   }
 ];
 
-let mods = [];
-let selectedGame = "";
-let selectedCategory = "";
-let selectedVersion = "";
-let currentMod = null;
+const $ = (s) => document.querySelector(s);
+const platformGrid = $("#platformGrid");
+const results = $("#results");
+const resultTitle = $("#resultTitle");
+const resultSubtitle = $("#resultSubtitle");
+const resultBody = $("#resultBody");
+const search = $("#search");
+let currentView = {type:"home"};
 
-const $ = id => document.getElementById(id);
-
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",
-    '"':"&quot;","'":"&#39;"
-  })[char]);
+/* Deterministic internal IDs; never displayed on public pages. */
+function makeInternalId(mod){
+  const source=[mod.game,mod.category,mod.version,mod.name].join("|").toLowerCase();
+  let hash=2166136261;
+  for(let i=0;i<source.length;i++){hash^=source.charCodeAt(i);hash=Math.imul(hash,16777619);}
+  return "rs-"+(hash>>>0).toString(36);
 }
+const normalizedMods = MODS.map(mod=>({...mod, internalId:makeInternalId(mod)}));
 
-// Generate an internal ID from the mod name.
-// The ID is not displayed on public pages.
-function makeModId(mod) {
-  const slug = String(mod.name || "mod")
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "")
-    .slice(0,70) || "mod";
-
-  return slug + "-" + String(mod.game || "").toLowerCase()
-    + "-" + String(mod.version || "").toLowerCase();
+function safeYouTubeEmbed(url){
+  try{
+    const u = new URL(url);
+    let id = "";
+    if(u.hostname === "youtu.be") id = u.pathname.slice(1);
+    else if(["youtube.com","www.youtube.com","m.youtube.com"].includes(u.hostname)) {
+      if(u.pathname === "/watch") id = u.searchParams.get("v") || "";
+      else if(u.pathname.startsWith("/embed/")) id = u.pathname.split("/")[2] || "";
+      else if(u.pathname.startsWith("/shorts/")) id = u.pathname.split("/")[2] || "";
+    }
+    if(!/^[A-Za-z0-9_-]{11}$/.test(id)) return "";
+    return "https://www.youtube-nocookie.com/embed/" + id;
+  }catch{return "";}
 }
-
-function normalizeMods(data) {
-  if (!Array.isArray(data)) return [];
-  return data.filter(m =>
-    m && ["BUSSID","BUSSIN"].includes(String(m.game || "").toUpperCase())
-    && typeof m.name === "string" && m.name.trim()
-    && typeof m.category === "string" && m.category.trim()
-    && typeof m.version === "string" && m.version.trim()
-    && typeof m.download === "string"
-    && /^https:\/\/(github\.com|raw\.githubusercontent\.com|drive\.google\.com|www\.mediafire\.com|mediafire\.com)\//i.test(m.download)
-  ).map(m => ({
-    ...m,
-    game:String(m.game).toUpperCase(),
-    id:makeModId(m)
-  }));
+function safeDownload(url){
+  try{
+    const u = new URL(url);
+    if(u.protocol !== "https:") return "";
+    return u.href;
+  }catch{return "";}
 }
-
-async function loadMods() {
-  try {
-    const response = await fetch("./mods.json", {cache:"no-store"});
-    if (!response.ok) throw new Error("mods.json not found");
-    const data = await response.json();
-    mods = normalizeMods(data);
-    $("status").textContent = "Mods loaded: " + mods.length;
-  } catch (error) {
-    mods = normalizeMods(SAMPLE_MODS);
-    $("status").textContent =
-      "Demo mods loaded. Add mods.json to GitHub to publish your mods.";
-  }
-  renderCategories();
+function makeButton(text,fn,cls="category"){
+  const b=document.createElement("button");b.type="button";b.className=cls;b.textContent=text;b.addEventListener("click",fn);return b;
 }
-
-function showPage(id) {
-  ["home","categoryPage","versionPage","detailPage"].forEach(page => {
-    $(page).classList.toggle("hidden", page !== id);
-  });
+function showHome(){
+  currentView={type:"home"};
+  results.classList.add("hidden");
+  $("#games").classList.remove("hidden");
+  $("#home").classList.remove("hidden");
+  search.value="";
+  renderPlatforms();
   window.scrollTo({top:0,behavior:"smooth"});
 }
-
-function goHome() {
-  selectedGame = "";
-  selectedCategory = "";
-  selectedVersion = "";
-  showPage("home");
-  renderCategories();
-}
-
-function openGame(game) {
-  selectedGame = game;
-  selectedCategory = "";
-  const filtered = mods.filter(m => m.game === game);
-  renderCategoryButtons(filtered, $("allCategories"));
-  $("home").querySelector(".section-title").textContent =
-    "🎮 " + game + " CATEGORIES";
-  showPage("home");
-}
-
-function renderCategoryButtons(list, container) {
-  container.innerHTML = "";
-  const categories = [...new Set(list.map(m => m.category))];
-
-  if (!categories.length) {
-    container.innerHTML =
-      '<div class="empty">No categories found yet.</div>';
-    return;
+function openCategory(game,category){
+  currentView={type:"category",game,category};
+  $("#games").classList.add("hidden");$("#home").classList.add("hidden");
+  results.classList.remove("hidden");
+  resultTitle.textContent=category;
+  resultSubtitle.textContent=game+" · Choose a version";
+  resultBody.replaceChildren();
+  const list=normalizedMods.filter(m=>m.game===game&&m.category===category);
+  const versions=[...new Set(list.map(m=>m.version))];
+  if(!versions.length){
+    const p=document.createElement("p");p.className="empty";p.textContent="No versions uploaded yet. New mods will appear here when added to the website data.";resultBody.append(p);
+  }else{
+    const grid=document.createElement("div");grid.className="version-grid";
+    versions.forEach(v=>grid.append(makeButton(v,()=>openVersion(game,category,v),"version")));
+    resultBody.append(grid);
   }
-
-  categories.forEach(category => {
-    const count = list.filter(m => m.category === category).length;
-    const button = document.createElement("button");
-    button.className = "category";
-    button.innerHTML =
-      '<span class="cat-name">' + escapeHTML(category) + '</span>' +
-      '<span class="cat-sub">' + count + ' mods · View versions →</span>';
-    button.addEventListener("click", () => openCategory(category));
-    container.appendChild(button);
-  });
+  window.scrollTo({top:results.offsetTop-10,behavior:"smooth"});
 }
-
-function renderCategories() {
-  const list = selectedGame
-    ? mods.filter(m => m.game === selectedGame)
-    : mods;
-  renderCategoryButtons(list, $("allCategories"));
-}
-
-function openCategory(category) {
-  selectedCategory = category;
-  $("categoryTitle").textContent =
-    (selectedGame ? selectedGame + " · " : "") + category;
-  const list = mods.filter(m =>
-    m.category === category &&
-    (!selectedGame || m.game === selectedGame)
-  );
-  const versions = [...new Set(list.map(m => m.version))];
-  $("versions").innerHTML = "";
-
-  if (!versions.length) {
-    $("versions").innerHTML =
-      '<div class="empty">No versions available.</div>';
+function openVersion(game,category,version){
+  currentView={type:"version",game,category,version};
+  const mod=normalizedMods.find(m=>m.game===game&&m.category===category&&m.version===version);
+  results.classList.remove("hidden");$("#games").classList.add("hidden");$("#home").classList.add("hidden");
+  resultTitle.textContent=version+" · "+category;
+  resultSubtitle.textContent=game+" · Mod details";
+  resultBody.replaceChildren();
+  if(!mod){const p=document.createElement("p");p.className="empty";p.textContent="This version could not be found.";resultBody.append(p);return;}
+  const box=document.createElement("article");box.className="detail";
+  const h=document.createElement("h2");h.textContent=mod.name;box.append(h);
+  const meta=document.createElement("div");meta.className="mod-meta";meta.textContent=game+"  •  "+category+"  •  "+version;box.append(meta);
+  const embed=safeYouTubeEmbed(mod.video||"");
+  if(embed){
+    const iframe=document.createElement("iframe");iframe.className="video";iframe.src=embed;iframe.title=mod.name+" video";iframe.loading="lazy";iframe.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";iframe.referrerPolicy="strict-origin-when-cross-origin";iframe.allowFullscreen=true;box.append(iframe);
+  }else{
+    const p=document.createElement("p");p.className="empty";p.textContent="Video not added for this mod yet.";box.append(p);
   }
-
-  versions.forEach(version => {
-    const count = list.filter(m => m.version === version).length;
-    const button = document.createElement("button");
-    button.className = "version";
-    button.innerHTML =
-      '<strong>' + escapeHTML(version) + '</strong>' +
-      '<span class="cat-sub">' + count + ' mods · View mods →</span>';
-    button.addEventListener("click", () => openVersion(version));
-    $("versions").appendChild(button);
-  });
-
-  showPage("categoryPage");
-}
-
-function backToCategory() {
-  openCategory(selectedCategory);
-}
-
-function openVersion(version) {
-  selectedVersion = version;
-  $("versionTitle").textContent = version + " · Available Mods";
-  const list = mods.filter(m =>
-    m.category === selectedCategory &&
-    m.version === version &&
-    (!selectedGame || m.game === selectedGame)
-  );
-  $("modsList").innerHTML = "";
-
-  if (!list.length) {
-    $("modsList").innerHTML =
-      '<div class="empty">No mods available for this version.</div>';
+  const href=safeDownload(mod.download||"");
+  if(href){
+    const a=document.createElement("a");a.className="download";a.href=href;a.target="_blank";a.rel="noopener noreferrer";a.textContent="⬇ DOWNLOAD MOD";box.append(a);
+    const note=document.createElement("div");note.className="download-note";note.textContent="Click Download to open the file host. Follow that host's download instructions.";box.append(note);
+  }else{
+    const p=document.createElement("p");p.className="empty";p.textContent="Download link not added yet.";box.append(p);
   }
-
-  list.forEach(mod => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML =
-      '<h3>' + escapeHTML(mod.name) + '</h3>' +
-      '<p class="muted">' + escapeHTML(mod.game) +
-      ' · ' + escapeHTML(mod.category) +
-      ' · ' + escapeHTML(mod.version) + '</p>' +
-      '<button class="download" type="button">VIEW MOD →</button>';
-    card.querySelector("button").addEventListener("click", () => {
-      openMod(mod);
+  resultBody.append(box);
+  window.scrollTo({top:results.offsetTop-10,behavior:"smooth"});
+}
+function renderPlatforms(filter=""){
+  platformGrid.replaceChildren();
+  const q=filter.trim().toLowerCase();
+  ["BUSSID","BUSSIN"].forEach(game=>{
+    const gameMods=normalizedMods.filter(m=>m.game===game);
+    const matches=gameMods.filter(m=>[m.name,m.category,m.version,game].join(" ").toLowerCase().includes(q));
+    const card=document.createElement("section");card.className="platform";
+    const head=document.createElement("div");head.className="platform-head";
+    const img=document.createElement("img");img.src=PROFILES[game];img.alt=game+" profile";img.loading="lazy";img.referrerPolicy="no-referrer";
+    img.onerror=()=>{img.style.display="none";};
+    const titles=document.createElement("div");const h=document.createElement("h2");h.textContent=game;const small=document.createElement("small");small.textContent=game==="BUSSID"?"Bus Simulator Indonesia Mods":"BUSSIN Mods";
+    titles.append(h,small);head.append(img,titles);card.append(head);
+    const grid=document.createElement("div");grid.className="category-grid";
+    CATEGORIES.forEach(cat=>{
+      const matching=matches.filter(m=>m.category===cat.name);
+      if(q && !matching.length && !(cat.name.toLowerCase().includes(q))) return;
+      const b=makeButton("",()=>openCategory(game,cat.name));
+      const icon=document.createElement("span");icon.className="emoji";icon.textContent=cat.icon;
+      const label=document.createElement("span");label.textContent=cat.name;
+      b.append(icon,label);
+      grid.append(b);
     });
-    $("modsList").appendChild(card);
-  });
-
-  showPage("versionPage");
-}
-
-function backToVersion() {
-  openVersion(selectedVersion);
-}
-
-function openMod(mod) {
-  currentMod = mod;
-  $("detailName").textContent = mod.name;
-  $("detailInfo").textContent =
-    mod.game + " · " + mod.category + " · " + mod.version;
-
-  const video = String(mod.video || "").trim();
-  const area = $("videoArea");
-  area.innerHTML = "";
-
-  if (video) {
-    let videoId = "";
-    try {
-      const url = new URL(video);
-      if (url.hostname === "youtu.be") {
-        videoId = url.pathname.slice(1);
-      } else if (url.hostname.endsWith("youtube.com")) {
-        videoId = url.searchParams.get("v") ||
-          url.pathname.split("/").filter(Boolean).pop() || "";
-      }
-    } catch (_) {}
-
-    if (/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
-      const iframe = document.createElement("iframe");
-      iframe.className = "video";
-      iframe.title = "Mod video";
-      iframe.src = "https://www.youtube-nocookie.com/embed/" + videoId;
-      iframe.loading = "lazy";
-      iframe.allow =
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      area.appendChild(iframe);
-    } else {
-      const link = document.createElement("a");
-      link.href = video;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "▶ Watch mod video";
-      area.appendChild(link);
+    if(q){
+      matches.filter(m=>!CATEGORIES.some(c=>c.name===m.category)).forEach(m=>{
+        const b=makeButton(`${m.category} · ${m.version}`,()=>openCategory(game,m.category));grid.append(b);
+      });
     }
-  } else {
-    area.innerHTML = '<p class="muted">Mod video coming soon.</p>';
-  }
-
-  $("downloadButton").href = mod.download;
-  showPage("detailPage");
-}
-
-$("search").addEventListener("input", function() {
-  const query = this.value.trim().toLowerCase();
-
-  if (!query) {
-    if (!$("home").classList.contains("hidden")) renderCategories();
-    return;
-  }
-
-  const results = mods.filter(m =>
-    [m.game,m.category,m.version,m.name]
-      .some(v => String(v).toLowerCase().includes(query))
-  );
-
-  $("home").querySelector(".section-title").textContent =
-    "🔎 SEARCH RESULTS";
-  renderCategoryButtons(results, $("allCategories"));
-
-  // Show direct matching mods as well as their categories.
-  const container = $("allCategories");
-  results.forEach(mod => {
-    const button = document.createElement("button");
-    button.className = "category";
-    button.innerHTML =
-      '<span class="cat-name">' + escapeHTML(mod.name) + '</span>' +
-      '<span class="cat-sub">' + escapeHTML(mod.game) + ' · ' +
-      escapeHTML(mod.version) + ' · Open mod →</span>';
-    button.addEventListener("click", () => openMod(mod));
-    container.appendChild(button);
+    if(!grid.children.length){const p=document.createElement("p");p.className="empty";p.textContent="No matching category or mod found.";card.append(p);}
+    else card.append(grid);
+    platformGrid.append(card);
   });
-
-  showPage("home");
+}
+$("#backButton").addEventListener("click",()=>{
+  if(currentView.type==="version") openCategory(currentView.game,currentView.category);
+  else showHome();
 });
-
-$("year").textContent = new Date().getFullYear();
-loadMods();
+$("#homeBrand").addEventListener("click",e=>{e.preventDefault();showHome();});
+search.addEventListener("input",()=>renderPlatforms(search.value));
+$("#year").textContent=new Date().getFullYear();
+renderPlatforms();
 </script>
 </body>
-</html>
+  </html>
