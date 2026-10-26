@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090e1b">
+<title>RS Gaming Mod</title>
+<style>
+:root{--bg:#090e1b;--card:#121c30;--line:#293752;--text:#f5f7ff;--muted:#a5b2c9;--cyan:#67e8f9;--purple:#9b8afb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;padding:18px 14px 35px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}
+.logo{background:linear-gradient(135deg,var(--cyan),var(--purple));color:#07101d;padding:14px;border-radius:14px;font-weight:900;font-size:20px}
+.brand{display:flex;align-items:center;gap:10px}
+h1{font-size:17px;margin:0}
+.sub{font-size:11px;color:var(--muted);margin-top:5px}
+.live{font-size:10px;color:var(--cyan)}
+.hero{padding:27px 18px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,#182943,#111628)}
+.eyebrow{color:var(--cyan);font-size:11px;letter-spacing:2px;font-weight:bold}
+.hero h2{font-size:clamp(30px,8vw,48px);line-height:1.1;margin:13px 0}
+.hero h2 span{color:var(--cyan)}
+.hero p{color:var(--muted);font-size:13px;line-height:1.6}
+.search{margin-top:20px}
+.search input{width:100%;padding:15px;background:#080e19;color:white;border:1px solid #35445f;border-radius:13px;font-size:14px;outline:none}
+h3{font-size:18px;margin:25px 0 12px}
+.games{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.game{padding:17px 12px;text-align:left;background:var(--card);color:white;border:1px solid var(--line);border-radius:16px;cursor:pointer}
+.game.active{border-color:var(--cyan);background:#142b3b}
+.emoji{font-size:25px;display:block;margin-bottom:9px}
+.game strong{font-size:13px}
+.game small{display:block;color:var(--muted);font-size:10px;margin-top:6px}
+.categories{display:flex;gap:8px;overflow-x:auto;padding-bottom:5px}
+.chip{white-space:nowrap;padding:10px 12px;border:1px solid var(--line);border-radius:20px;background:var(--card);color:var(--muted);font-size:11px;cursor:pointer}
+.chip.active{background:var(--cyan);color:#07101d;font-weight:bold}
+.heading{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.heading h3{margin-bottom:4px}
+#count{color:var(--muted);font-size:11px}
+.grid{display:grid;grid-template-columns:1fr;gap:13px;margin-top:13px}
+.card{padding:15px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#152139,#0e1626);min-width:0}
+.tags{display:flex;justify-content:space-between;gap:8px;margin-bottom:14px}
+.tag{font-size:10px;padding:7px 9px;border-radius:8px;background:#67e8f912;color:var(--cyan);overflow-wrap:anywhere}
+.version{font-size:10px;padding:7px 9px;border-radius:8px;background:#9b8afb18;color:#c7bbff}
+.card h4{font-size:16px;margin:0 0 9px;overflow-wrap:anywhere}
+.desc{font-size:12px;color:var(--muted);line-height:1.6;overflow-wrap:anywhere}
+.meta{font-size:10px;color:var(--muted);margin:12px 0}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.btn{display:block;text-align:center;text-decoration:none;border-radius:10px;padding:12px 5px;background:#202e46;color:white;font-size:12px;font-weight:bold}
+.btn.download{background:linear-gradient(120deg,var(--cyan),#9af3cf);color:#07101b}
+.empty{border:1px dashed var(--line);border-radius:16px;padding:25px 15px;text-align:center;color:var(--muted);font-size:13px;line-height:1.8}
+footer{margin-top:28px;padding-top:17px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.7;text-align:center}
+@media(min-width:600px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{padding:24px}.hero{padding:35px}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="logo">RS</div>
+    <div><h1>RS GAMING MOD</h1><div class="sub">BUSSID &amp; BUSSIN MOD HUB</div></div>
+  </div>
+  <div class="live">● GITHUB</div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">WELCOME TO RS GAMING</div>
+  <h2>FIND YOUR<br><span>BEST MODS.</span></h2>
+  <p>BUSSID &amp; BUSSIN mods, versions and downloads in one place.</p>
+  <div class="search"><input id="search" type="search" placeholder="Search mods, versions..." aria-label="Search mods"></div>
+</section>
+
+<h3>Choose Your Game</h3>
+<div class="games">
+  <button class="game active" data-game="BUSSID"><span class="emoji">🚌</span><strong>BUSSID MODS</strong><small>Bus Simulator Indonesia</small></button>
+  <button class="game" data-game="BUSSIN"><span class="emoji">🚍</span><strong>BUSSIN MODS</strong><small>Bus Simulator Indonesia Next</small></button>
+</div>
+
+<h3 id="catTitle">BUSSID Categories</h3>
+<div class="categories" id="categories"></div>
+
+<div class="heading">
+  <div><h3 id="listTitle">Latest Mods</h3></div>
+  <span id="count">Loading...</span>
+</div>
+<main class="grid" id="mods"><div class="empty">Loading mods...</div></main>
+
+<footer>
+  © <span id="year"></span> RS Gaming Mod<br>
+  All mod names and download links should be used with permission from their respective owners.
+</footer>
+</div>
+<script>
+const DATA_FILE = "./mods.json";
+const CATS = [
+ "ALL CATEGORIES",
+ "REALISTIC RAIN 🌧️⛈️ MOD",
+ "STEERING WHEEL MOD",
+ "WHEEL CAP MOD",
+ "GARAGE MOD"
+];
+let data = [];
+let game = "BUSSID";
+let category = "ALL CATEGORIES";
+
+const $ = id => document.getElementById(id);
+$("year").textContent = new Date().getFullYear();
+
+function escapeHTML(v=""){
+ return String(v).replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ })[c]);
+}
+function validURL(v){
+ try{
+  const u=new URL(v);
+  return ["https:","http:"].includes(u.protocol)?u.href:"";
+ }catch{return "";}
+}
+function renderCategories(){
+ $("catTitle").textContent=game+" Categories";
+ $("categories").innerHTML=CATS.map(c=>
+  `<button class="chip ${c===category?"active":""}" data-cat="${escapeHTML(c)}">${escapeHTML(c)}</button>`
+ ).join("");
+ document.querySelectorAll("[data-cat]").forEach(b=>{
+  b.addEventListener("click",()=>{
+   category=b.dataset.cat;
+   renderCategories();
+   renderMods();
+  });
+ });
+}
+function renderMods(){
+ const q=$("search").value.trim().toLowerCase();
+ const list=data.filter(m=>{
+  const sameGame=String(m.game||"").toUpperCase()===game;
+  const sameCat=category==="ALL CATEGORIES"||
+   String(m.category||"").toUpperCase()===category.toUpperCase();
+  const words=[m.name,m.description,m.category,m.version,m.game].join(" ").toLowerCase();
+  return sameGame&&sameCat&&words.includes(q);
+ });
+ $("count").textContent=list.length+" mods";
+ $("listTitle").textContent=q?"Search Results":"Latest Mods";
+ if(!list.length){
+  $("mods").innerHTML='<div class="empty">No mods found.<br>Try another search or category.</div>';
+  return;
+ }
+ $("mods").innerHTML=list.slice().reverse().map(m=>{
+  const video=validURL(m.video);
+  const download=validURL(m.download);
+  return `<article class="card">
+   <div class="tags"><span class="tag">${escapeHTML(m.category||"MOD")}</span><span class="version">${escapeHTML(m.version||"Latest")}</span></div>
+   <h4>${escapeHTML(m.name||"Untitled Mod")}</h4>
+   <div class="desc">${escapeHTML(m.description||"No description added.")}</div>
+   <div class="meta">${escapeHTML(m.game||game)}${m.date?" · "+escapeHTML(m.date):""}</div>
+   <div class="actions">
+    ${video?`<a class="btn" href="${escapeHTML(video)}" target="_blank" rel="noopener noreferrer">▶ Watch Video</a>`:`<span class="btn">No Video</span>`}
+    ${download?`<a class="btn download" href="${escapeHTML(download)}" target="_blank" rel="noopener noreferrer">⬇ Download</a>`:`<span class="btn download">No Link</span>`}
+   </div>
+  </article>`;
+ }).join("");
+}
+document.querySelectorAll("[data-game]").forEach(b=>{
+ b.addEventListener("click",()=>{
+  game=b.dataset.game;
+  category="ALL CATEGORIES";
+  document.querySelectorAll("[data-game]").forEach(x=>x.classList.toggle("active",x===b));
+  renderCategories();
+  renderMods();
+ });
+});
+$("search").addEventListener("input",renderMods);
+
+async function loadMods(){
+ try{
+  const response=await fetch(DATA_FILE+"?v="+Date.now(),{cache:"no-store"});
+  if(!response.ok)throw new Error("HTTP "+response.status);
+  const json=await response.json();
+  if(!Array.isArray(json))throw new Error("mods.json must contain a JSON array");
+  data=json;
+  renderCategories();
+  renderMods();
+ }catch(err){
+  $("count").textContent="Load error";
+  $("mods").innerHTML='<div class="empty">Could not load mods.json.<br>Check that the file exists in the repository root and contains valid JSON.<br><br>'+escapeHTML(err.message)+'</div>';
+  renderCategories();
+ }
+}
+loadMods();
+</script>
+</body>
+</html>
